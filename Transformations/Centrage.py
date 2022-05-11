@@ -1,4 +1,4 @@
-from moyenne import Moyenne
+from Estimateur.moyenne import Moyenne
 
 class centrage:
     '''
