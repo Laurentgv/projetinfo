@@ -1,0 +1,3 @@
+class moyenne_glissante:
+    '''
+    '''

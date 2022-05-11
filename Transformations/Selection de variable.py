@@ -1,0 +1,3 @@
+class selection_variable:
+    '''
+    '''
