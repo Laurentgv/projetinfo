@@ -1,4 +1,4 @@
 from abc import ABC, abstractmethod
 
-class Import(ABC):
+class Importer(ABC):
     ''''''
