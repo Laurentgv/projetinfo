@@ -1,3 +1,5 @@
+from moyenne import Moyenne
+
 class centrage:
     '''
     '''
