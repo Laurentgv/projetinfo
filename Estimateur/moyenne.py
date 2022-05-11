@@ -8,7 +8,7 @@ class Moyenne(Estimateur):
     def __init__(self, variable):
         self.variable=variable
     
-    def calcul(self, poids=[1]*len(self.variable)):
+    def calcul(self, poids=[1/len(self.variable)]*len(self.variable)):
         '''Calcul de la moyenne avec des poids'''
         S=0
         for i in range(len(self.variable)):
