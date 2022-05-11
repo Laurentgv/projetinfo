@@ -1,0 +1,3 @@
+class agregation_spatiale:
+    '''
+    '''
