@@ -16,11 +16,18 @@ class centrage:
         ----------
         variable : list
 
+        Returns
+        -------
+        list
+
         Examples
         --------
+        >>> a1=[1,2,3]
+        >>> a1.centrage()
+        [0.5,1,1.5]
         '''
         moy = Moyenne.calcul(self.variable)
-
-        for i in range (len(self.variable)):
-            self.variable[i]=self.variable[i] - moy
-            
+        cop = self.variable
+        for i in range (len(cop)):
+            cop[i]=cop[i] - moy
+        return cop
