@@ -18,11 +18,14 @@ class normalisation:
 
         Examples
         --------
+        >>> a1=[2,2,2]
+        >>> a1.normalisation()
+        [1,1,1]
         '''
         ecart = EcartType.calcul(self.variable)
         assert(ecart!=0)
-
-        for i in range (len(self.variable)):
-            self.variable[i]=self.variable[i]/ecart
-
+        cop=self.variable
+        for i in range (len(cop)):
+            cop[i]=cop[i]/ecart
+        return cop
     
