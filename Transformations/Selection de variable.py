@@ -17,7 +17,7 @@ class selection_variable:
         print("Saisissez N si vous avez fini votre saisie")
 
 
-        a = input()
+        a = int(input())
         L2=[]
         while a!="N":
             L2.append(self.tableau[a])
