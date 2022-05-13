@@ -10,4 +10,4 @@ class Estimateur(ABC):
         super().__init__()
 
     def calcul(self):
-        return 0
+        return None
