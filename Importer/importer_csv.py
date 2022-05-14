@@ -33,4 +33,4 @@ class Importer_csv(Importer):
             print(filename)
             with gzip.open(folderpath + filename, mode='rt',encoding='utf-8') as gzfile :
                 data_electricite.append(json.load(gzfile))
-        return(len(data_electricite))
+        return(data_electricite)
