@@ -11,7 +11,11 @@ class normalisation:
     def norma(self):
         '''
         Normalisation de la variable
-
+        
+        Description longue
+        ------------------
+        Divise les valeurs d'une variable par l'écart-type si celui-ci n'est pas nul
+        
         Attributes
         ----------
         variable : list
