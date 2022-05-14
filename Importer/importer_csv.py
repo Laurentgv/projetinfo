@@ -3,14 +3,32 @@ import csv
 import json
 
 class Importer():
-    '''Commentaires'''
+    '''Cette classe permet d'importer des fichiers csv ou json. 
+    Peut-être qu'on pourra lui rajouter la possibilté d'importer directement un dossier de fichier(...?)
+
+    Attributs
+    ---------
+    Faut il mettre le chemin du fichier en attribut de la classe ou en attribut des méthodes, question à poser.
+
+    Méthodes
+    --------
+    csv_file(filepath:str) : 
+        Permet d'importer un fichier csv, en indiquant le chemin complet du fichier.
+
+    json_file(filepath:str) : 
+        Permet d'importer un fichier json, en indiquant le chemin complet du fichier.
+
+    Exemples
+    --------
+    >>>synop_201301 = csv_do('Downloads/données/données_météo/synop.201301.csv.gz')
+    >>>2013_01 = json_do(Downloads/données/données_électricité/2013-01.json.gz)
+    '''
 
     def __init__(self) -> None:
         super().__init__()
     
     def csv_file(slef, filepath:str):
-        '''
-        Permet d'importer un fichier csv.
+        '''Permet d'importer un fichier csv.
 
         Paramètres
         ----------
@@ -36,9 +54,8 @@ class Importer():
                 data.append(row)
         return(data)
     
-    def json_file(filepath:str):
-        '''
-        Permet d'importer un fichier json.
+    def json_file(self, filepath:str):
+        '''Permet d'importer un fichier json.
         
         Paramètres
         ----------
