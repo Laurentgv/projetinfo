@@ -1,14 +1,36 @@
 class agregation_spatiale:
     '''
     '''
-    def __init__(self, tableau, variable):
+    def __init__(self, data, variable):
         '''
         '''
         self.variable=variable
-        self.tableau=tableau
+        self.data=data
 
     def selection(self):
         '''
+        Permet à l'utilisateur de choisir les régions dont il souahite observer les valeurs.
+
+        Description longue
+        ------------------
+        L'utilisateur doit saisir les régions qu'il souhaite visualiser.
+        Une nouvelle table est ensuite créée avec les régions que l'utilisateur a choisi.
+        L'utilisateur peut aussi choisir de visualiser les données pour toute la France
+
+        Attributes
+        ----------
+
+        Examples
+        --------
+        >>> a=[]
+        >>> a.fun()
+        [(1, Ille-et-Villaine),
+        (2, Ile-de-France),
+        (3, Normandie)]
+        Quelles régions souhaitez vous visualiser ? Entrez France si vous souhaitez tout visualiser.
+        >>> 1
+        >>> 2
+        
         '''
         L2=[]
         L3=[]
@@ -21,10 +43,10 @@ class agregation_spatiale:
         print("Quelles régions souhaitez vous visualiser ? Entrez France si vous souhaitez tout visualiser.")
         a=int(input())
         if a=="France":
-            return self.tableau
+            return self.data
         else: #peut probablement être optimisé
             nom=L2[a]
             for j in range (len(self.variable)): 
                 if self.variable[j]==nom:
-                    L3.append(self.tableau[j])
+                    L3.append(self.data[j])
             return L3

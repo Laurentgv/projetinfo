@@ -11,6 +11,10 @@ class centrage:
     def centrage(self):
         '''
         Centrage de la variable
+        
+        Description longue
+        ------------------
+        Enlève à chaque valeur d'une variable la moyenne de celle-ci
 
         Attributes
         ----------
@@ -24,7 +28,7 @@ class centrage:
         --------
         >>> a1=[1,2,3]
         >>> a1.centrage()
-        [0.5,1,1.5]
+        [-1,0,1]
         '''
         moy = Moyenne.calcul(self.variable)
         cop = self.variable
