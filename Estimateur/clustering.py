@@ -1,5 +1,4 @@
 from estimateur import Estimateur
-from random import randrange
 import numpy as np
 
 class Clustering(Estimateur):
