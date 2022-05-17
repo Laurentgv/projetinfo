@@ -57,5 +57,4 @@ class jointure():
                 for k in range(len(data_fille[0])):
                     sortie[i][sortie[0].index(data_fille[0][k])]=data_fille[i-len(self.data)+1][data_fille[0].index(data_fille[0][k])]
         return(sortie)
-
         
