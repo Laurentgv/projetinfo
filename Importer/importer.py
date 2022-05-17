@@ -2,6 +2,7 @@ import gzip
 import csv
 import json
 
+
 class Importer():
     '''Cette classe permet d'importer des fichiers csv ou json. 
     Peut-être qu'on pourra lui rajouter la possibilté d'importer directement un dossier de fichier(...?)
@@ -23,11 +24,11 @@ class Importer():
     >>>synop_201301 = csv_do('Downloads/données/données_météo/synop.201301.csv.gz')
     >>>2013_01 = json_do(Downloads/données/données_électricité/2013-01.json.gz)
     '''
-
+'''
     def __init__(self) -> None:
         super().__init__()
-    
-    def csv_file(slef, filepath:str):
+    '''
+    def csv_file(filepath:str):
         '''Permet d'importer un fichier csv.
 
         Paramètres
