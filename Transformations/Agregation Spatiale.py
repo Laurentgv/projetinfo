@@ -19,9 +19,10 @@ class agregation_spatiale:
 
         Attributes
         ----------
-        variable
+        variable : list
+            variable dont on souhaite observer les valeurs
         
-        data
+        data : 
 
         Examples
         --------
