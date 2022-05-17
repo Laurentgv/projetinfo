@@ -22,7 +22,8 @@ class agregation_spatiale:
         variable : list
             variable dont on souhaite observer les valeurs
         
-        data : 
+        data : (list of list) or (list of dict)
+            table dont on souhaite observer les valeurs
 
         Examples
         --------
