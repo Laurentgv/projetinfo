@@ -19,6 +19,9 @@ class agregation_spatiale:
 
         Attributes
         ----------
+        variable
+        
+        data
 
         Examples
         --------
