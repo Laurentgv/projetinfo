@@ -1,3 +1,7 @@
+from gc import get_referents
+from ossaudiodev import SOUND_MIXER_MONITOR
+from sys import getrecursionlimit
+from Estimateur.moyenne import Moyenne
 import Table
 
 class Agregation_spatiale(Table):
@@ -58,3 +62,8 @@ class Agregation_spatiale(Table):
                 if self.var[j]==nom:
                     L3.append(self.data[j])
             return L3
+        #L0 variable par lequel tu veux agréger
+        #L1 liste des variables Moyenne
+        #L2 liste que tu veux sommer
+        #L3 liste que tu veux tej
+        #L4 liste des var qui ne changent pas
