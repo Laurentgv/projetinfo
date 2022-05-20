@@ -1,4 +1,5 @@
 from outils import Outils
+from Table import Table
 
 class Transforme(Table):
     '''Cette classe permet de transformer les données importees dans un format : liste de listes
