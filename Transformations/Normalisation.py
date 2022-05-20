@@ -5,6 +5,12 @@ class Normalisation:
     '''
     def __init__(self, variable):
         '''
+        Constructeur
+
+        Attributes
+        ----------
+        variable : list
+            liste contenant les donnees de la variable
         '''
         self.variable=variable
 

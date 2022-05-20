@@ -1,3 +1,5 @@
+import Table
+
 class Moyenne_glissante:
     '''
     '''
