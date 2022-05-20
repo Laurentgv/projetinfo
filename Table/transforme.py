@@ -24,8 +24,9 @@ class Transforme(Table):
     '''
 
     def __init__(self) -> None:
+        super.__init__
     
-    def json_data(self, file):
+    def transforme_json(self, file):
         '''Permet de transformer une liste de dictionnaire de la forme : ['nom':'...', 'id':'...', 'données':dict, 'time':'...']
         en une liste de liste de la forme : data[ligne][colonne]=data[individu][variable]. 
         
@@ -49,11 +50,12 @@ class Transforme(Table):
             clef_passage = outils.fusion(clef_passage, outils.clef_dict_imbrique(file[i], [])[1])
 
         #Cree le tableau de la bonne dimension de none
-        data=[[None for x in range(len(tete))] for x in range(len(file))]
+        data=[[None for x in range(len(tete))] for x in range(len(file)-1)] # -1 dans le deuxième range due au format tuple du type Table.
 
         #On titre les colonnes
+        variables=[]
         for i in range(len(tete)):
-            data[0][i]=tete[i]
+            variables.append(tete[i])
 
         #On remplit d'abord les données issues des sous-dictionnaires
         for i in range(len(file)):
@@ -68,7 +70,33 @@ class Transforme(Table):
                 if (tete[j] in outils.clefs_dictionnaire(file[i])) and not(tete[j] in clef_passage):
                     data[i][j]=file[i][tete[j]]
 
-        return (data)
+        return (variables, data)
 
+    def transforme_csv(self, file, valeur_manquante):
+        '''Permet de rendre opérationnel des données importées à partir d'un fichier csv.
+        
+        Attributs
+        ---------
+        file:
+            Les données importées à partir d'un fichier csv.
+        
+        Retourne
+        --------
+        tuple:
+            Les données issues du fichier csv sous le bon format. On a remplacer les valeurs manquantes par None, et changer les données numériques en type num.
+        
+        Exemples
+        --------
+        '''
+        variables=file[0]
+
+        for i in range(1,len(file)):
+            for j in range(len(file[0])):
+                if file[i][j]==valeur_manquante:
+                    file[i][j]=None
+                else:
+                    file[i][j]=float(file[i][j])
+        
+        return (file[0], file[1:])
 
 

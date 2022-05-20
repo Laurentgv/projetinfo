@@ -23,8 +23,8 @@ class Exporter():
         super().__init__()
 
 
-    def table(nom, data):
-        '''Permet d'importer un fichier csv.
+    def export(nom, data):
+        '''Permet d' un fichier csv.
 
         Paramètres
         ----------

@@ -1,4 +1,4 @@
-from distutils.log import error
+import outils
 
 class Table:
     '''
@@ -43,3 +43,8 @@ class Table:
             return error
         else:
             return S
+
+    
+
+
+

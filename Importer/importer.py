@@ -85,7 +85,7 @@ class Importer():
         with gzip.open(filepath, mode='rt',encoding='utf-8') as gzfile :
             data=json.load(gzfile)
 
-        return data
+        return (data)
 
 
 #doc = "/Users/laurentgv/Desktop/PTD - données/synop.201301.csv.gz"
