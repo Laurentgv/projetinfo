@@ -1,5 +1,5 @@
-from outils import Outils
-from Table import Table
+from table import Table
+import outils
 
 class Transforme(Table):
     '''Cette classe permet de transformer les données importees dans un format : liste de listes
@@ -23,10 +23,9 @@ class Transforme(Table):
     >>>
     '''
 
-    def __init__(self, file) -> None:
-        self.file=file
+    def __init__(self) -> None:
     
-    def json_data(self):
+    def json_data(self, file):
         '''Permet de transformer une liste de dictionnaire de la forme : ['nom':'...', 'id':'...', 'données':dict, 'time':'...']
         en une liste de liste de la forme : data[ligne][colonne]=data[individu][variable]. 
         
@@ -46,8 +45,8 @@ class Transforme(Table):
         tete=[]
         clef_passage=[]
         for i in range(len(self.file)):
-            tete=Outils.fusion(tete, Outils.clef_dict_imbrique(self.file[i], [])[0])
-            clef_passage = Outils.fusion(clef_passage, Outils.clef_dict_imbrique(self.file[i], [])[1])
+            tete=outils.fusion(tete, outils.clef_dict_imbrique(self.file[i], [])[0])
+            clef_passage = outils.fusion(clef_passage, outils.clef_dict_imbrique(self.file[i], [])[1])
 
         #Cree le tableau de la bonne dimension de none
         data=[[None for x in range(len(tete))] for x in range(len(self.file))]
@@ -59,14 +58,14 @@ class Transforme(Table):
         #On remplit d'abord les données issues des sous-dictionnaires
         for i in range(len(self.file)):
             for j in clef_passage:
-                sous_clef=Outils.clefs_dictionnaire(self.file[i][j])
+                sous_clef=outils.clefs_dictionnaire(self.file[i][j])
                 for k in sous_clef:
                     data[i][tete.index(k)]=self.file[i][j][k]
 
         #On remplit les données issues du dictionnaire principale
         for i in range(len(self.file)):
             for j in range(len(tete)):
-                if (tete[j] in Outils.clefs_dictionnaire(self.file[i])) and not(tete[j] in clef_passage):
+                if (tete[j] in outils.clefs_dictionnaire(self.file[i])) and not(tete[j] in clef_passage):
                     data[i][j]=self.file[i][tete[j]]
 
         return (data)

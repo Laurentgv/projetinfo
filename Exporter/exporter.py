@@ -21,9 +21,9 @@ class Exporter():
 
     def __init__(self) -> None:
         super().__init__()
-        
 
-    def csv_file(filepath:str):
+
+    def table(nom, data):
         '''Permet d'importer un fichier csv.
 
         Paramètres
@@ -43,13 +43,6 @@ class Exporter():
         >>>synop_201301[0][0]
         >>>['numer_sta', 'date', 'pmer', 'tend', 'cod_tend', 'dd', 'ff', 't', 'td', 'u', 'vv', 'ww', 'w1', 'w2', 'n', 'nbas', 'hbas', 'cl', 'cm', 'ch', 'pres', 'niv_bar', 'geop', 'tend24', 'tn12', 'tn24', 'tx12', 'tx24', 'tminsol', 'sw', 'tw', 'raf10', 'rafper', 'per', 'etat_sol', 'ht_neige', 'ssfrai', 'perssfrai', 'rr1', 'rr3', 'rr6', 'rr12', 'rr24', 'phenspe1', 'phenspe2', 'phenspe3', 'phenspe4', 'nnuage1', 'ctype1', 'hnuage1', 'nnuage2', 'ctype2', 'hnuage2', 'nnuage3', 'ctype3', 'hnuage3', 'nnuage4', 'ctype4', 'hnuage4', '']
         '''
-        data = []
-        with gzip.open(filepath, mode='rt') as gzfile :
-            synopreader = csv.reader(gzfile, delimiter=';') 
-            for row in synopreader :
-                data.append(row)
-        return(data)
-
-        with open('protagonist.csv', 'w', newline='') as file:
+        with open(nom+'.csv', 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerows(row_list)
+            writer.writerows(data)

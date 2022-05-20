@@ -29,7 +29,7 @@ class Moyenne(Estimateur):
     def __init__(self, variable):
         self.variable=variable
     
-    def calcul(self, poids=[1/len(self.variable)]*len(self.variable)):
+    def calcul(self, poids=None):
         '''Calcule la moyenne pondérée d'une variable numérique.
         
         Paramètres
@@ -53,6 +53,8 @@ class Moyenne(Estimateur):
         >>>Moyenne.calcul(L,poids)
         >>>2.7
         '''
+        if not(poids):
+            poids=[1/len(self.variable)]*len(self.variable)
         S=0
         if not(Somme.calcul(poids)==1):
             raise Exception("Attention! La somme des poids n'est pas égale à 1.")
