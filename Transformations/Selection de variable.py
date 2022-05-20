@@ -1,4 +1,4 @@
-import Table
+from Table import Table
 
 class Selection_variable(Table):
     '''

@@ -1,5 +1,5 @@
 import datetime
-import Table
+from Table import Table
 
 class Fenetrage:
     '''

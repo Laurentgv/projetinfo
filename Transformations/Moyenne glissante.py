@@ -1,4 +1,4 @@
-import Table
+from Table import Table
 from Estimateur.moyenne import Moyenne
 
 class Moyenne_glissante:
