@@ -1,4 +1,3 @@
-from tkinter import _EntryIndex
 import outils
 
 class Table:

@@ -2,7 +2,7 @@ from table import Table
 import outils
 
 class Transforme(Table):
-    '''Cette classe permet de transformer les données importees dans un format : liste de listes
+    '''Cette classe permet de transformer les données importées dans un format : Table
     
     Attributs
     ---------
@@ -11,9 +11,12 @@ class Transforme(Table):
         
     Méthodes
     --------
-    json_data(file:list of dict):list of list
+    transforme_json(file:list of dict):list of list
         Fonction qui transforme une liste de dictionnaire de la forme : ['nom':'...', 'id':'...', 'données':dict, 'time':'...']
         en une liste de liste de la forme : data[ligne][colonne]=data[individu][variable].
+
+    transforme_csv(file:list of list, valeur_manquante:str):list of list
+        Fonction qui prends les données csv importées en qui les renvoies au format Table avec des None pour les valeurs manquantes, et qui change le type des données en float.
 
     Exemples
     --------
@@ -83,13 +86,11 @@ class Transforme(Table):
         Retourne
         --------
         tuple:
-            Les données issues du fichier csv sous le bon format. On a remplacer les valeurs manquantes par None, et changer les données numériques en type num.
+            Les données issues du fichier csv sous le bon format. On a remplacer les valeurs manquantes par None, et changer les données numériques en type float.
         
         Exemples
         --------
         '''
-        variables=file[0]
-
         for i in range(1,len(file)):
             for j in range(len(file[0])):
                 if file[i][j]==valeur_manquante:
