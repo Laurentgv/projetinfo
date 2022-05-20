@@ -5,6 +5,7 @@ class Selection_variable(Table):
     '''
     def __init__(Table):
         '''
+        Constructeur
         '''
         super().__init__()
 
@@ -22,7 +23,7 @@ class Selection_variable(Table):
 
         Examples
         --------
-        >>> a=[[Température, 19, 20, 32],[Ville, Paris, Rennes, Marseille],[Date, 19/04/14, 18/04/14, 24/04/14]]
+        >>> a=Table([Température, Ville, Date],[[19,Paris,140418],[20,Rennes,140418],[32,Marseille,140424]])
         >>> a.fun()
         [(1, Température),
         (2, Ville),
@@ -31,19 +32,28 @@ class Selection_variable(Table):
         Saisissez N si vous avez fini votre saisie
         >>> 1
         >>> 2
-        [[Température, 19, 20, 32],[Ville, Paris, Rennes, Marseille]]
+        Table([Température, Ville],[[19,Paris],[20,Rennes],[32,Marseille]])
         ''' 
-        L1=[]
+
         for i in range (len(self.var)):
-            L1.append((i,self.var[i]))
-        print(L1)
+            print((i,self.var[i]))
         print("Choisissez les variables ques vous souhaitez visualiser.")
         print("Saisissez N si vous avez fini votre saisie")
-        a = int(input())
-        L2=[]
+
+        data=self.data
+        a = input()
+        assert(a!="N")
+        L2=[a]
+        var=[]
+        donnees=[]
         while a!="N":
-            var=self.var[a]
-            donnees=self.data[a]
-            L2.append([var]@donnees)
+            var.append(self.var[a])
             a = input()
-        return L2
+            L2.append(a)
+        for i in range (len(data)):
+            l=[]
+            for j in range (len(L2)):
+                z=L2[j]
+                l.append(data[i][z])
+            donnees.append(l)
+        return Table(var,donnees)
