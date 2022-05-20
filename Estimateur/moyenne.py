@@ -58,7 +58,7 @@ class Moyenne(Estimateur):
             raise Exception("Attention! La somme des poids n'est pas égale à 1.")
         else:
             for i in range(len(self.variable)):
-                S=poids[i]*self.variable[i]
+                S+=poids[i]*self.variable[i]
             return S
 
 
