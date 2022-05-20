@@ -38,7 +38,7 @@ class Fenetrage:
         fin=datetime.datetime(anneef,moisf,jourf,hf,mf,sf)
 
         assert(debut<=fin)
-        indice = self.ind("date")
+        indice = (self.var).index("date")
         data=self.data
         L=[]
         for i in range (len(data)):

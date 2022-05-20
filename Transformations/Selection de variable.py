@@ -36,7 +36,7 @@ class Selection_variable(Table):
         ''' 
 
         for i in range (len(self.var)):
-            print((i,self.var[i]))
+            print((i,(self.var)[i]))
         print("Choisissez les variables ques vous souhaitez visualiser.")
         print("Saisissez N si vous avez fini votre saisie")
 
@@ -46,14 +46,14 @@ class Selection_variable(Table):
         L2=[a]
         var=[]
         donnees=[]
+        tab=Table([],[])
         while a!="N":
             var.append(self.var[a])
             a = input()
             L2.append(a)
-        for i in range (len(data)):
-            l=[]
-            for j in range (len(L2)):
-                z=L2[j]
-                l.append(data[i][z])
-            donnees.append(l)
-        return Table(var,donnees)
+        for i in range (len(L2)):
+            b=L2[i]
+            v=(self.var)[b]
+            don=self.extraire_var(v)
+            tab.ajouter_var(v,don)
+        return tab
