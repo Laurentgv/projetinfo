@@ -56,7 +56,31 @@ class Importer():
         return(data)
     
     def json_file(self, filepath:str):
-
+        '''Permet d'importer un fichier json.
+        
+        Paramètres
+        ----------
+        filepath : str
+            Chemin complet du fichier que l'on veut importer
+            
+        Retourne
+        --------
+        data : list of dict
+            Une liste de dictionnaire
+            data[x] permet d'accéder à l'individu x
+            Dans le cadre du projet chaque individu est un dictionnaire de 4 items : datasetid, recordid, fields et record_timestamp.
+            Les données se trouvent essentiellement dans fields qui est lui même un dictionnaire à 5 items.
+            
+        Exemples
+        --------
+        >>>2013_01 = json_do(Downloads/données/données_électricité/2013-01.json.gz)
+        >>>2013_01[0]
+        >>>{'datasetid': 'consommation-quotidienne-brute-regionale', 'recordid': 'e28e41fe8a890eed00e49c0849255351c5413c50', 'fields': {'code_insee_region': '24', 'date': '2013-01-01', 'region': 'Centre-Val de Loire', 'date_heure': '2013-01-01T00:00:00+01:00', 'heure': '00:00'}, 'record_timestamp': '2018-04-26T08:49:58.532+02:00'}
+        >>>2013_01[0]['datasetid']
+        >>>'consommation-quotidienne-brute-regionale'
+        >>>2013_01[0]['fields']['region']
+        >>>'Centre-Val de Loire'
+        '''
         data=[]
         with gzip.open(filepath, mode='rt',encoding='utf-8') as gzfile :
             data=json.load(gzfile)

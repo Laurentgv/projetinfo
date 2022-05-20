@@ -5,17 +5,13 @@ import numpy as np
 class EcartType(Estimateur):
     '''Permet de calculer l'écart-type d'une variable numérique.
 
-    Attributs
+    Attributes
     ---------
     variable : list of int
-        Variabe numérique dont on veut calculer l'écart-type.
+        Variabe numerique dont on veut calculer l'ecart-type.
     
-    Méthodes
-    --------
-    calcul():
-        Calcul l'écrat-type de la variable.
-    
-    Exemples
+
+    Examples
     --------
     >>>L=[1,2,3,4,5]
     >>>EcartType.calcul(L)
@@ -26,18 +22,17 @@ class EcartType(Estimateur):
         self.variable=variable
 
     def calcul(self):
-        '''Calcul l'écart-type d'une variable numérique.
+        '''Calcul l'ecart-type d'une variable numerique.
         
-        Paramètres
+        Parameters
         ----------
-        Aucun
-        
-        Retourne
+       
+        Returns
         --------
         s : int 
-            L'écart-type de la variable. Attention, on calcul l'écart-type avec la variance empirique est ce la bonne méthode ?
+            L'ecart-type de la variable. Attention, on calcul l'ecart-type avec la variance empirique est ce la bonne méthode ?
         
-        Exemples
+        Examples
         --------
         >>>L=[1,2,3,4,5]
         >>>EcartType.calcul(L)
