@@ -59,7 +59,5 @@ class Jointure():
                 var_tab1.append(var_tab2[i])
                 for j in range(len(tab2)-1):
                     data1[i].append(data2[i][j])
-
-        tab1.var=var_tab1
-        tab1.data=data1
-        return tab1
+                    
+        return Table(var_tab1,data1)

@@ -14,18 +14,12 @@ class Moyenne_glissante:
     periode : int
         Pas de la moyenne glissante
     '''
-    def __init__(self,variable):
+    def __init__(Table):
         '''
         Constructeur
 
-        Attributes
-        ----------
-
-        variable : list
-            Donnees dont on veut obtenir la moyenne glissante
-
         '''
-        self.variable=variable
+        super().__init__()
 
     def calcul(self,periode):
         '''
@@ -38,17 +32,20 @@ class Moyenne_glissante:
 
         Examples
         --------
-        >>> a=[24,3,3,3,3,3,3,3,9]
+        >>> import Table
+        >>> a=Table(["Nom_variable"],[[24],[3],[3],[3],[3],[3],[3],[3],[9]])
         >>> a.calcul(3)
         [10,3,3,3,3,3,5]
         '''
         L=[]
         var=self.variable
+        assert(len(var)==1)
+        data=self.data
         le=len(var)
         for i in range (le-periode+1):
             l=[]
             for j in range (periode):
-                l.append(L[i+j])
+                l.append(data[i+j])
             m=Moyenne.calcul(l)
             L.append(m)
         return L

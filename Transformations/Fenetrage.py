@@ -56,7 +56,7 @@ class Fenetrage:
             if (actuel>=debut) and (actuel<=fin): 
                 L.append(data[i])
         self.data=L
-        return((self.var)@L)
+        return Table((self.var),L)
 
 
 
