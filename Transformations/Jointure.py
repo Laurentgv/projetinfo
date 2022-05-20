@@ -46,15 +46,17 @@ class jointure():
         '''
         #Création d'un tableau de la dimension finale de 'None'
         sortie=[[None for x in range(len(list(set(self.data[0]+self.data_fille[0])))) ] for x in range(len(self.data)+len(data_fille)-1)]
+        
         #On rempli tout de suite la première ligne avec le nom des colonnes
         sortie[0]=list(dict.fromkeys(self.data[0]+data_fille[0]))
+        
         #On remplit le tableau sortie avec les données de self.data
         for i in range(len(self.data[0])):
             for j in range(len(self.data)):
                 sortie[j][i]=(self.data[j][i])
+        
         #On remplit le tableau sortie avec les données de data_fille
         for i in range(len(self.data), len(self.data)+len(data_fille)-1):
                 for k in range(len(data_fille[0])):
                     sortie[i][sortie[0].index(data_fille[0][k])]=data_fille[i-len(self.data)+1][data_fille[0].index(data_fille[0][k])]
         return(sortie)
-        
