@@ -55,7 +55,7 @@ class Importer():
                 data.append(row)
         return(data)
     
-    def json_file(self, filepath:str):
+    def json_file(filepath:str):
         '''Permet d'importer un fichier json.
         
         Paramètres
