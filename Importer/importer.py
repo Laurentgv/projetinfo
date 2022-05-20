@@ -86,3 +86,8 @@ class Importer():
             data=json.load(gzfile)
 
         return data
+
+
+doc = "/Users/laurentgv/Desktop/PTD - données/synop.201301.csv.gz"
+t = Importer.csv_file(doc)
+print (t[0])
