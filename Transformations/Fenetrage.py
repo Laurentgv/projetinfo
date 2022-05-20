@@ -1,7 +1,8 @@
 import datetime
 from Table import Table
+from Transformations import Transformations
 
-class Fenetrage(Table):
+class Fenetrage(Transformations):
     '''
     Sélection des données sur une période temporelle
     '''
@@ -10,9 +11,9 @@ class Fenetrage(Table):
         Constructeur
 
         '''
-        super().__init__()
+        pass
 
-    def fun(self):
+    def transfo(self,tab:Table):
         '''
         '''
         print("Saisir date de début au format yyyymmdd")
@@ -42,8 +43,8 @@ class Fenetrage(Table):
         fin=datetime.datetime(anneef,moisf,jourf,hf,mf,sf)
 
         assert(debut<=fin)
-        indice = (self.var).index("date")
-        data=self.data
+        indice = (tab.var).index("date")
+        data=tab.data
         L=[]
         for i in range (len(data)):
 
@@ -59,8 +60,8 @@ class Fenetrage(Table):
 
             if (actuel>=debut) and (actuel<=fin): 
                 L.append(data[i])
-        self.data=L
-        return Table((self.var),L)
+        tab.data=L
+        return Table((tab.var),L)
 
 
 

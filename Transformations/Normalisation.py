@@ -1,7 +1,8 @@
 from Estimateur.ecarttype import EcartType
-import Table
+from Table import Table
+from Transformations import Transformations
 
-class Normalisation(Table):
+class Normalisation(Transformations):
     '''
     '''
     def __init__(self):
@@ -11,7 +12,7 @@ class Normalisation(Table):
         '''
         super().__init__()
 
-    def norma(self, variable):
+    def transfo(self, variable):
         '''
         Normalisation de la variable
         

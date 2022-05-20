@@ -1,7 +1,8 @@
 from Table import Table
 from Estimateur.moyenne import Moyenne
+from Transformations import Transformations
 
-class Moyenne_glissante(Table):
+class Moyenne_glissante(Transformations):
     '''
     Classe des transformations par moyenne glissante
 
@@ -14,21 +15,24 @@ class Moyenne_glissante(Table):
     periode : int
         Pas de la moyenne glissante
     '''
-    def __init__(self):
+    def __init__(self,periode):
         '''
         Constructeur
 
-        '''
-        super().__init__()
+        Attributes
+        ----------
+        period : int
+            Pas de la moyenne glissante
 
-    def calcul(self,periode):
+        '''
+        self.periode=periode
+
+    def transfo(self):
         '''
         Transformation de la liste en moyenne glissante
         
         Attributes
         ----------
-        period : int
-            Pas de la moyenne glissante
 
         Examples
         --------
@@ -42,9 +46,9 @@ class Moyenne_glissante(Table):
         assert(len(var)==1)
         data=self.data
         le=len(var)
-        for i in range (le-periode+1):
+        for i in range (le-self.periode+1):
             l=[]
-            for j in range (periode):
+            for j in range (self.periode):
                 l.append(data[i+j])
             m=Moyenne.calcul(l)
             L.append(m)

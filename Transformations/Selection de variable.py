@@ -1,6 +1,7 @@
 from Table import Table
+from Transformations import Transformations
 
-class Selection_variable(Table):
+class Selection_variable(Transformations):
     '''
     '''
     def __init__(Table):
@@ -9,7 +10,7 @@ class Selection_variable(Table):
         '''
         super().__init__()
 
-    def fun(self):
+    def transfo(self):
         '''
         Permet à l'utilisateur de choisir les variables qu'il souhaite visualiser.
 

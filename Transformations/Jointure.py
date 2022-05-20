@@ -1,6 +1,7 @@
 from Table import Table
+from Transformations import Transformations
 
-class Jointure(Table):
+class Jointure(Transformations):
     '''
     Classe des jointures de deux tables
 
@@ -18,9 +19,9 @@ class Jointure(Table):
         '''
         Constructeur
         '''
-        super().__init__()
+        pass
 
-    def joint(self,tab2, var):
+    def transfo(self,tab1:Table, tab2:Table, var):
         '''
         Joint deux tables avec une variable en commun
 
@@ -34,13 +35,13 @@ class Jointure(Table):
         Examples
         --------
         '''
-        variables=(self.var)+(tab2.var)
+        variables=(tab1.var)+(tab2.var)
         data=[]
-        index=(self.var).index("var")
-        l=(tab2).extraire_var("var")
+        index=(tab1.var).index("var")
+        l=extraire_var("var")
 
-        for i in range(len(self.data)):
-            initial=self.data[i]
+        for i in range(len(tab1.data)):
+            initial=tab1.data[i]
             drap=initial[index]
             i=l.index(drap)
             data.append(initial+tab2[i])
