@@ -1,3 +1,4 @@
+from tkinter import _EntryIndex
 import outils
 
 class Table:
@@ -40,7 +41,7 @@ class Table:
             if self.var[i]!=var:
                 S+=1
         if S==len(self.var):
-            return error
+            raise Exception("Attention! La variable n'appartient pas à cette table")
         else:
             return S
 
