@@ -45,11 +45,11 @@ class Fenetrage:
 
             date=data[i][indice]
             annee=date[0:4]
-            mois=[4:6]
-            jour=[6:8]
-            heure=[8:10]
-            min=[10:12]
-            sec=[12:14]
+            mois=date[4:6]
+            jour=date[6:8]
+            heure=date[8:10]
+            min=date[10:12]
+            sec=date[12:14]
 
             actuel=datetime.datetime(annee,mois,jour,heure,min,sec)
 
