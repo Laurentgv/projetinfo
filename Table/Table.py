@@ -26,24 +26,6 @@ class Table:
         self.var=var
         self.data=data
 
-#   def ind(self, var):
-#       '''
-#       Retourne la position d'une variable dans la table
-#       
-#       Attributes
-#       ----------
-#       var : str
-#          variable dont on souhaite connaitre l'indice    
-#        '''
-#        S=0
-#        for i in range (len(self.var)):
-#            if self.var[i]!=var:
-#                S+=1
-#        if S==len(self.var):
-#            raise Exception("Attention! La variable n'appartient pas à cette table")
-#        else:
-#            return S
-
     def enlev_var(self,variable):
         '''
         Permet de retirer une variable à une table

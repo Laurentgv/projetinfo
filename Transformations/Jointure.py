@@ -96,11 +96,18 @@ class Jointure():
         Examples
         --------
         '''
-        variables=[]
+        variables=(self.var)+(tab2.var)
         data=[]
-        index=self.ind("var")
+        index=(self.var).index("var")
+        l=(tab2).extraire_var("var")
+
+        for i in range(len(self.data)):
+            initial=self.data[i]
+            drap=initial[index]
+            i=l.index(drap)
+            data.append(initial+tab2[i])
         
-        variables=(self.var)@
+        tab=Table(variables,data)
+        tab.enlev_var("var") #on enlève la variable var de la table car elle est en double
 
-
-        return Table(variables,data)
+        return tab
