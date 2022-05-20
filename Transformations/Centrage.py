@@ -1,6 +1,6 @@
 from Estimateur.moyenne import Moyenne
 
-class centrage:
+class Centrage:
     '''
     '''
     def __init__(self, variable):

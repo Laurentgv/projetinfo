@@ -1,4 +1,4 @@
-class fenetrage:
+class Fenetrage:
     '''
     Sélection des données sur une période temporelle
     '''

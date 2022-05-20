@@ -1,7 +1,7 @@
 from distutils.log import error
 
 
-class table:
+class Table:
     '''
     Classe dataframe
     

@@ -1,6 +1,6 @@
 from Estimateur.ecarttype import EcartType
 
-class normalisation:
+class Normalisation:
     '''
     '''
     def __init__(self, variable):
