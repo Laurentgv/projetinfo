@@ -45,7 +45,6 @@ class Jointure():
         
         tab1=self.tab #table
         var_tab1=tab1.var #list
-        #tab2=tab2. #tableau
         var_tab2=tab2.var #list
         i1=tab1.ind(self.var) 
         i2=tab2.ind(var2)

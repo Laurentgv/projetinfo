@@ -3,7 +3,7 @@ import Table
 class Selection_variable(Table):
     '''
     '''
-    def __init__(self):
+    def __init__(Table):
         '''
         '''
         super().__init__()
