@@ -44,29 +44,29 @@ class Transforme(Table):
         #Cree une liste des noms des variables
         tete=[]
         clef_passage=[]
-        for i in range(len(self.file)):
-            tete=outils.fusion(tete, outils.clef_dict_imbrique(self.file[i], [])[0])
-            clef_passage = outils.fusion(clef_passage, outils.clef_dict_imbrique(self.file[i], [])[1])
+        for i in range(len(file)):
+            tete=outils.fusion(tete, outils.clef_dict_imbrique(file[i], [])[0])
+            clef_passage = outils.fusion(clef_passage, outils.clef_dict_imbrique(file[i], [])[1])
 
         #Cree le tableau de la bonne dimension de none
-        data=[[None for x in range(len(tete))] for x in range(len(self.file))]
+        data=[[None for x in range(len(tete))] for x in range(len(file))]
 
         #On titre les colonnes
         for i in range(len(tete)):
             data[0][i]=tete[i]
 
         #On remplit d'abord les données issues des sous-dictionnaires
-        for i in range(len(self.file)):
+        for i in range(len(file)):
             for j in clef_passage:
-                sous_clef=outils.clefs_dictionnaire(self.file[i][j])
+                sous_clef=outils.clefs_dictionnaire(file[i][j])
                 for k in sous_clef:
-                    data[i][tete.index(k)]=self.file[i][j][k]
+                    data[i][tete.index(k)]=file[i][j][k]
 
         #On remplit les données issues du dictionnaire principale
-        for i in range(len(self.file)):
+        for i in range(len(file)):
             for j in range(len(tete)):
-                if (tete[j] in outils.clefs_dictionnaire(self.file[i])) and not(tete[j] in clef_passage):
-                    data[i][j]=self.file[i][tete[j]]
+                if (tete[j] in outils.clefs_dictionnaire(file[i])) and not(tete[j] in clef_passage):
+                    data[i][j]=file[i][tete[j]]
 
         return (data)
 
