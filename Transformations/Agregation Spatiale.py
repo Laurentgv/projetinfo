@@ -1,4 +1,4 @@
-class agregation_spatiale:
+class Agregation_spatiale:
     '''
     '''
     def __init__(self, data, variable):

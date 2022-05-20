@@ -1,4 +1,6 @@
-class selection_variable:
+import Table
+
+class Selection_variable:
     '''
     '''
     def __init__(self, tableau):

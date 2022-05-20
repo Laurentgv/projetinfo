@@ -1,4 +1,4 @@
-class moyenne_glissante:
+class Moyenne_glissante:
     '''
     '''
     def __init__():
