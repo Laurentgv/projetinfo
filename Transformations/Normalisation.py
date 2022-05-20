@@ -35,7 +35,7 @@ class Normalisation(Transformations):
         ecart = EcartType.calcul((self.var)[index])
         assert(ecart!=0)
         donnees=self.extraire_var(variable)
-        for i in range (len(cop)):
+        for i in range (len(donnees)):
             donnees[i]=donnees[i]/ecart
         (self.data)[index]=donnees
         return Table(self.var,self.data)

@@ -38,7 +38,7 @@ class Jointure(Transformations):
         variables=(tab1.var)+(tab2.var)
         data=[]
         index=(tab1.var).index("var")
-        l=extraire_var("var")
+        l=tab1.extraire_var("var")
 
         for i in range(len(tab1.data)):
             initial=tab1.data[i]

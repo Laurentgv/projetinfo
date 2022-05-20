@@ -1,4 +1,4 @@
-from table import Table
+from Table import Table
 import outils
 
 class Transforme(Table):

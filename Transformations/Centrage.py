@@ -37,7 +37,7 @@ class Centrage(Transformations):
         index=(tab.var).index(variable)
         donnees=tab.extraire_var(variable)
         moy = Moyenne.calcul(donnees)
-        for i in range (len(cop)):
+        for i in range (len(donnees)):
             donnees[i]=donnees[i] - moy
         (tab.data)[index]=donnees
         return Table(tab.var, tab.data)
