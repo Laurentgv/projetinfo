@@ -26,8 +26,12 @@ class Transforme(Table):
     >>>
     '''
 
-    def __init__(self) -> None:
-        super.__init__
+    def __init__(Table):
+        '''
+        Constructeur
+
+        '''
+        super().__init__()
     
     def transforme_json(self, file):
         '''Permet de transformer une liste de dictionnaire de la forme : ['nom':'...', 'id':'...', 'données':dict, 'time':'...']
@@ -100,4 +104,31 @@ class Transforme(Table):
         
         return (file[0], file[1:])
 
+
+    def transfo_format_date_json(self):
+        '''
+        Permet de changer le format de la date des donnees des fichiers en .json yyyy-mm-ddThh:mm:ss+01:00
+        avec le format des fichiers en .csv yyyymmddhhmmss
+        
+        Attributes
+        ----------
+        Examples
+        --------
+        >>> a=Table([Région, date, Temperature],[[IdF, 2013-01-30T05:00:00+01:00, 23],[IdF, 2015-05-14T06:08:00+01:00, 13]])
+        >>> a.transfo_format_date_json()
+        >>> print(a.data)
+        [[IdF, 20130130050000, 23],[IdF, 20150514060800, 13]]
+        
+        '''
+        index=(self.var).index('date')
+        donnees=self.data
+        for i in range(len(self.data)):
+            date=donnees[i][index]
+            annee=str(date[0:4])
+            mois=str(date[5:7])
+            jour=str(date[8:10])
+            heure=str(date[11::13])
+            minute=str(date[14:16])
+            seconde=str(date[17:19])
+            donnees[i][index]=annee+mois+jour+heure+minute+seconde
 

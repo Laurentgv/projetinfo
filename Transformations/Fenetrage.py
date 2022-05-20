@@ -58,5 +58,5 @@ class Fenetrage:
         self.data=L
         return Table((self.var),L)
 
-
+    
 
