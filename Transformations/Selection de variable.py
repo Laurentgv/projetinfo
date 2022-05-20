@@ -1,12 +1,12 @@
 import Table
 
-class Selection_variable:
+class Selection_variable(Table):
     '''
     '''
-    def __init__(self, tableau):
+    def __init__(self):
         '''
         '''
-        self.tableau=tableau
+        super().__init__()
 
     def fun(self):
         '''
@@ -34,16 +34,16 @@ class Selection_variable:
         [[Température, 19, 20, 32],[Ville, Paris, Rennes, Marseille]]
         ''' 
         L1=[]
-        for i in range (len(self.tableau)):
-            L1.append((i,self.tableau[i][1]))
+        for i in range (len(self.var)):
+            L1.append((i,self.var[i]))
         print(L1)
         print("Choisissez les variables ques vous souhaitez visualiser.")
         print("Saisissez N si vous avez fini votre saisie")
-
-
         a = int(input())
         L2=[]
         while a!="N":
-            L2.append(self.tableau[a])
+            var=self.var[a]
+            donnees=self.data[a]
+            L2.append([var]@donnees)
             a = input()
         return L2

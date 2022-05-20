@@ -1,6 +1,5 @@
 from distutils.log import error
 
-
 class Table:
     '''
     Classe dataframe
