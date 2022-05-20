@@ -1,11 +1,15 @@
 import datetime
 from Table import Table
 
-class Fenetrage:
+class Fenetrage(Table):
     '''
     Sélection des données sur une période temporelle
     '''
-    def __init__(Table):
+    def __init__(self):
+        '''
+        Constructeur
+
+        '''
         super().__init__()
 
     def fun(self):
@@ -58,5 +62,5 @@ class Fenetrage:
         self.data=L
         return Table((self.var),L)
 
-    
+
 

@@ -1,7 +1,7 @@
 from Table import Table
 from Estimateur.moyenne import Moyenne
 
-class Moyenne_glissante:
+class Moyenne_glissante(Table):
     '''
     Classe des transformations par moyenne glissante
 
@@ -14,7 +14,7 @@ class Moyenne_glissante:
     periode : int
         Pas de la moyenne glissante
     '''
-    def __init__(Table):
+    def __init__(self):
         '''
         Constructeur
 

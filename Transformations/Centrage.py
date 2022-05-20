@@ -1,14 +1,17 @@
 from Estimateur.moyenne import Moyenne
+import Table
 
-class Centrage:
+class Centrage(Table):
     '''
     '''
-    def __init__(self, variable):
+    def __init__(self):
         '''
-        '''
-        self.variable=variable
+        Constructeur
 
-    def centrage(self):
+        '''
+        super().__init__()
+
+    def centrage(self,variable):
         '''
         Centrage de la variable
         
@@ -18,20 +21,22 @@ class Centrage:
 
         Attributes
         ----------
-        variable : list
+        variable : str
+            variable dont on souhaite centré les données
 
         Returns
         -------
-        list
 
         Examples
         --------
-        >>> a1=[1,2,3]
-        >>> a1.centrage()
-        [-1,0,1]
+        >>> a1=Table([Temperature],[1,2,3])
+        >>> a1.centrage(Temperature)
+        ([Temperature],[-1,0,1])
         '''
-        moy = Moyenne.calcul(self.variable)
-        cop = self.variable
+        index=(self.var).index(variable)
+        donnees=self.extraire_var(variable)
+        moy = Moyenne.calcul(donnees)
         for i in range (len(cop)):
-            cop[i]=cop[i] - moy
-        return cop
+            donnees[i]=donnees[i] - moy
+        (self.data)[index]=donnees
+        return Table(self.var, self.data)

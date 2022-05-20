@@ -1,20 +1,17 @@
 from Estimateur.ecarttype import EcartType
+import Table
 
-class Normalisation:
+class Normalisation(Table):
     '''
     '''
-    def __init__(self, variable):
+    def __init__(self):
         '''
         Constructeur
 
-        Attributes
-        ----------
-        variable : list
-            liste contenant les donnees de la variable
         '''
-        self.variable=variable
+        super().__init__()
 
-    def norma(self):
+    def norma(self, variable):
         '''
         Normalisation de la variable
         
@@ -24,18 +21,21 @@ class Normalisation:
         
         Attributes
         ----------
-        variable : list
+        variable : str
+            nom de la variable qu'on souhaite normaliser
 
         Examples
         --------
-        >>> a1=[2,2,2]
-        >>> a1.normalisation()
-        [1,1,1]
+        >>> a1=([Temperature],[[2],[2],[2]])
+        >>> a1.normalisation(Temperature)
+        ([Temperature],[[1],[1],[1]])
         '''
-        ecart = EcartType.calcul(self.variable)
+        index=(self.var).index(variable)
+        ecart = EcartType.calcul((self.var)[index])
         assert(ecart!=0)
-        cop=self.variable
+        donnees=self.extraire_var(variable)
         for i in range (len(cop)):
-            cop[i]=cop[i]/ecart
-        return cop
+            donnees[i]=donnees[i]/ecart
+        (self.data)[index]=donnees
+        return Table(self.var,self.data)
     

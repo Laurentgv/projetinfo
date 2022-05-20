@@ -1,11 +1,14 @@
-class Agregation_spatiale:
+import Table
+
+class Agregation_spatiale(Table):
     '''
     '''
-    def __init__(self, data, variable):
+    def __init__(self):
         '''
+        Constructeur
+
         '''
-        self.variable=variable
-        self.data=data
+        super().__init__()
 
     def selection(self):
         '''
@@ -39,7 +42,7 @@ class Agregation_spatiale:
         '''
         L2=[]
         L3=[]
-        L1=set(self.variable)
+        L1=set(self.var)
         L1=list(L1)
         #Pour séléctionner les valeurs distinctes de la variables
         for i in range (len(L1)):
@@ -51,7 +54,7 @@ class Agregation_spatiale:
             return self.data
         else: #peut probablement être optimisé
             nom=L2[a]
-            for j in range (len(self.variable)): 
-                if self.variable[j]==nom:
+            for j in range (len(self.var)): 
+                if self.var[j]==nom:
                     L3.append(self.data[j])
             return L3
