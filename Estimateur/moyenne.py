@@ -6,7 +6,7 @@ class Moyenne(Estimateur):
 
     Attributs
     ---------
-    variable : Table
+    variable : list of int
         Variable dont on veut calculer la somme. 
     
     Méthodes
@@ -16,12 +16,6 @@ class Moyenne(Estimateur):
 
     Exemples
     --------
-    >>>L=[1,2,3,4,5]
-    >>>Moyenne.calcul(L)
-    >>>3
-    >>>poids=[0.5,0,0.1,0.1,0.3]
-    >>>Moyenne.calcul(L,poids)
-    >>>2.7
     '''
     
     def __init__(self, variable):
@@ -44,12 +38,6 @@ class Moyenne(Estimateur):
             
         Exemples
         --------
-        >>>L=[1,2,3,4,5]
-        >>>Moyenne.calcul(L)
-        >>>3
-        >>>poids=[0.5,0,0.1,0.1,0.3]
-        >>>Moyenne.calcul(L,poids)
-        >>>2.7
         '''
         if not(poids):
             poids=[1/len(self.variable)]*len(self.variable)
@@ -65,6 +53,6 @@ class Moyenne(Estimateur):
                     S+=poids[i]*self.variable[i]
         if not(m==0):
             print('Attention, la moyenne qui vient d être calculée comporte '+str(m)+' valeurs manquantes')
-            return S
+        return S
 
 
