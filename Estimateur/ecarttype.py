@@ -1,5 +1,5 @@
-from estimateur import Estimateur
-from moyenne import Moyenne
+from Estimateur.estimateur import Estimateur
+from Estimateur.moyenne import Moyenne
 import numpy as np
 
 class EcartType(Estimateur):
