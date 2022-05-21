@@ -5,14 +5,14 @@ class Agregation_spatiale(Transformations):
 
     '''
     '''
-    def __init__(self,variable="National",L1,L2,L3,L4):
+    def __init__(self, variable="National", L1, L2, L3, L4):
         '''
         Constructeur
 
         Attributes
         ----------
         variable : str
-            variable sur laquelle on fait l'agrégation
+            variable sur laquelle on fait l'agrégation, initalisé à National
         L1 : list
             liste des variables sur laquelle on calcule la moyenne
         L2 : list
@@ -38,7 +38,7 @@ class Agregation_spatiale(Transformations):
 
         Description longue
         ------------------
-        L'utilisateur pourra obtenir une agrégation spatiale sur la variable à agréger de son choix. Si la variable saisie est "Nationale" (choix de base), 
+        L'utilisateur pourra obtenir une agrégation spatiale sur la variable à agréger de son choix. Si la variable saisie est "National" (choix de base), 
         l'utilisateur obtient une agrégation à l'échelle nationale.
         Les variables sont ensuites agrégées selon si c'est des variables sur lesquelles on veut obtenir : la somme, la moyenne, ou si elle reste 
         la même pour toute l'agrégation ou si elle est tout simplement retirée
