@@ -54,11 +54,17 @@ class Moyenne(Estimateur):
         if not(poids):
             poids=[1/len(self.variable)]*len(self.variable)
         S=0
+        m=0
         if not(Somme.calcul(poids)==1):
             raise Exception("Attention! La somme des poids n'est pas égale à 1.")
         else:
             for i in range(len(self.variable)):
-                S+=poids[i]*self.variable[i]
+                if not(self.variable[i]):
+                    m+=1
+                else:
+                    S+=poids[i]*self.variable[i]
+        if not(m==0):
+            print('Attention, la moyenne qui vient d être calculée comporte '+str(m)+' valeurs manquantes')
             return S
 
 

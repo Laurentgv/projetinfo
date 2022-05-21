@@ -1,4 +1,5 @@
 from estimateur import Estimateur
+from Table import Table
 
 class Somme(Estimateur):
     '''Permet de calculer la somme d'une variable numérique
@@ -17,9 +18,7 @@ class Somme(Estimateur):
 
     Exemples
     --------
-    >>>L=[1,2,3,4,5]
-    >>>Somme.calcul(L)
-    >>>15
+
     '''
 
     def __init__(self, variable):
@@ -38,11 +37,15 @@ class Somme(Estimateur):
         
         Exemples
         -------
-        >>>L=[1,2,3,4,5]
-        >>>Somme.calcul(L)
-        >>>3
+
         '''
         S=0
+        m=0
         for i in range(len(self.variable)):
-            S+=self.variable[i]
+            if not(self.variable[i]):
+                m+=1
+            else:
+                S+=self.variable[i]
+        if not(m==0):
+            print('Attention, la somme qui vient d être calculée comporte ' +str(m)+' valeurs manquantes')
         return S

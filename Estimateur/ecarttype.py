@@ -40,7 +40,13 @@ class EcartType(Estimateur):
         '''
         M=Moyenne.calcul(self.variable)
         S=0
+        c=0
         for i in range(len(self.variable)):
-            S+=((self.variable[i]-M)**2)
+            if not(self.variable[i]):
+                c+=1
+            else:
+                S+=((self.variable[i]-M)**2)
         V=S*(1/(len(self.variable)-1))
+        if not(c==0):
+            print('Attention, l écart-type qui vient d être calculé comporte '+str(c)+' valeurs manquantes')
         return np.sqrt(V)
