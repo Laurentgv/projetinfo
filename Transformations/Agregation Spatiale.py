@@ -48,7 +48,7 @@ class Agregation_spatiale(Transformations):
         '''
         #L3 variables qu'on retire de la table
         for i in range (len(self.L3)):
-            table.enlev_var(L3[i])
+            table.enlev_var(self.L3[i])
 
         agreg=list(set(table.extraire_var(self.variable)))
         #Pour séléctionner les valeurs distinctes de la variables
@@ -60,7 +60,7 @@ class Agregation_spatiale(Transformations):
                 ind=(table.var).index(a) #index de la variable
                 m=0
                 for j in range (compt):
-                    m+=table.data[#l'individu][a]
+                    m+=table.data#[l'individu][a]
                 m/compt
             for b in self.L2:
                 #somme
