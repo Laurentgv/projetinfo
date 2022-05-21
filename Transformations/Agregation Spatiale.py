@@ -46,26 +46,46 @@ class Agregation_spatiale(Transformations):
         Examples
         --------
         '''
-        #L3 variables qu'on retire de la table
-        for i in range (len(self.L3)):
-            table.enlev_var(self.L3[i])
+        def aux(agreg):
+            tab=Table((self.var), [])
 
-        agreg=list(set(table.extraire_var(self.variable)))
-        #Pour séléctionner les valeurs distinctes de la variables
+
+            for i in range (len(agreg)):
+                L=[] #on crée pour chaque agrégation, la liste de data pour l'agrégation.
+                l_indice=self.l_index(self.variable, agreg[i]) #retourne une liste avec les index des individus dans l'agregation i
+                le=len(l_indice)#nombre d'individu pour chaque agregation
+                for j in range (len(table.var)):
+                    if (table.var)[j] in self.L1:
+                        m=0
+                        for k in range (le):
+                            m+=(table.data)[l_indice[k]][j]
+                        m=m/len(l_indice)
+                        L.append(m)
+                    elif (table.var)[j] in self.L2:
+                        S=0
+                        for k in range (le):
+                            S+=(table.data)[l_indice[k]][j]
+                        L.append(S)
+                    elif (table.var)[j] in self.L4:
+                        value=(table.data)[l_indice[0]][j] #on prend la première valeur de la variable pour cet agreg car elle ne change pas pour L4
+                        L.append(value)
+
+                (tab.data).append(L+agreg[i])
+
+            #L3 variables qu'on retire de la table
+            for i in range (len(self.L3)):
+                tab.enlev_var(self.L3[i])
         
-        for i in range (len(agreg)):
-            compt=(self.variable).count(agreg[i])#nombre d'individu pour chaque agregation
-            for a in self.L1:
-                #moyenne
-                ind=(table.var).index(a) #index de la variable
-                m=0
-                for j in range (compt):
-                    m+=table.data#[l'individu][a]
-                m/compt
-            for b in self.L2:
-                #somme
-                ind=(table.var).index(b)
-                for j in range (compt):
-            for c in self.L4:
-                #ne change pas
-                ind=(table.var).index(c)
+            return tab
+        #fin fonction auxiliaire
+        
+        if self.variable=="National":
+            agreg=[France]
+        elif self.variable in table.var:
+            agreg=list(set(table.extraire_var(self.variable))) #Pour séléctionner les valeurs distinctes de la variable d'agregation
+        else : 
+            raise Exception("La variable saisie n'est pas une variable possible d'agrégation")
+        
+        return aux(agreg)
+
+        

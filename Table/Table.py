@@ -88,3 +88,22 @@ class Table:
         for i in range(len(self.data)):
             L.append((self.data)[i][index])
         return L
+
+    def l_index(self, variable,valeur):
+        '''
+        Permet d'obtenir la liste d'index d'une valeur pour une valeur donnée
+        
+        Attributes
+        ----------
+        variable : str
+            Nom de la variable dont on souhaite obtenir la liste d'index
+        valeur : str ou int ou float
+            Valeur de la variable dont on souhaite obtenir la liste d'index
+        '''
+        donnees=self.extraire_var(variable)
+        k=donnees.index(valeur) #premier appartition de la valeur dans les données
+        L=[k]
+        for i in range(k+1,len(donnees)):
+            if donnees[i]==valeur:
+                L.append(i)
+        return L
