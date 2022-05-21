@@ -89,7 +89,7 @@ class Table:
             L.append((self.data)[i][index])
         return L
 
-    def l_index(self, variable,valeur):
+    def l_index(self,variable,valeur):
         '''
         Permet d'obtenir la liste d'index d'une valeur pour une valeur donnée
         

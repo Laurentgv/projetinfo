@@ -5,7 +5,7 @@ class Agregation_spatiale(Transformations):
 
     '''
     '''
-    def __init__(self,variable,L1,L2,L3,L4):
+    def __init__(self,variable="National",L1,L2,L3,L4):
         '''
         Constructeur
 
@@ -34,14 +34,19 @@ class Agregation_spatiale(Transformations):
 
     def transfo(self,table:Table):
         '''
+        Permet à l'utilisateur d'obtenir une agrégation spatiale, soit en régions soit national sur la table de données table.
 
         Description longue
         ------------------
-        
+        L'utilisateur pourra obtenir une agrégation spatiale sur la variable à agréger de son choix. Si la variable saisie est "Nationale" (choix de base), 
+        l'utilisateur obtient une agrégation à l'échelle nationale.
+        Les variables sont ensuites agrégées selon si c'est des variables sur lesquelles on veut obtenir : la somme, la moyenne, ou si elle reste 
+        la même pour toute l'agrégation ou si elle est tout simplement retirée
 
         Attributes
         ----------
-    
+        table : Table
+            Table des variables et données
 
         Examples
         --------
@@ -80,7 +85,7 @@ class Agregation_spatiale(Transformations):
         #fin fonction auxiliaire
         
         if self.variable=="National":
-            agreg=[France]
+            agreg=["National"]
         elif self.variable in table.var:
             agreg=list(set(table.extraire_var(self.variable))) #Pour séléctionner les valeurs distinctes de la variable d'agregation
         else : 

@@ -15,6 +15,21 @@ class Fenetrage(Transformations):
 
     def transfo(self,tab:Table):
         '''
+
+        Permet à l'utilisateur d'obtenir les individus entre 2 dates qu'il aura à saisir
+
+        Description longue
+        ------------------
+        L'utilisateur devra saisir date et heure de début et de sortie.
+        Il obtiendra ensuite seulement les individus dont la data se trouve entre les dates qu'il aura saisi.
+
+        Attributes
+        ----------
+        tab : Table
+            Table des variables et données
+
+        Examples
+        --------
         '''
         print("Saisir date de début au format yyyymmdd")
         date_debut=input()

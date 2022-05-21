@@ -4,6 +4,9 @@ from Transformations import Transformations
 
 class Normalisation(Transformations):
     '''
+    Classe de normalisation des tables
+
+    
     '''
     def __init__(self):
         '''

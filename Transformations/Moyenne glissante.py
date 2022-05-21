@@ -21,7 +21,7 @@ class Moyenne_glissante(Transformations):
 
         Attributes
         ----------
-        period : int
+        periode : int
             Pas de la moyenne glissante
 
         '''
