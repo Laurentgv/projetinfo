@@ -1,5 +1,6 @@
-from estimateur import Estimateur
-from somme import Somme
+from Estimateur.estimateur import Estimateur
+from Estimateur.somme import Somme
+from Table import Table
 
 class Moyenne(Estimateur):
     ''''Permet de calculer la moyenne pondérée d'une variable numérique.
@@ -43,7 +44,7 @@ class Moyenne(Estimateur):
             poids=[1/len(self.variable)]*len(self.variable)
         S=0
         m=0
-        if not(Somme.calcul(poids)==1):
+        if not(Somme(poids).calcul()==1):
             raise Exception("Attention! La somme des poids n'est pas égale à 1.")
         else:
             for i in range(len(self.variable)):

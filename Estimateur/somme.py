@@ -1,4 +1,4 @@
-from estimateur import Estimateur
+from Estimateur.estimateur import Estimateur
 from Table import Table
 
 class Somme(Estimateur):
