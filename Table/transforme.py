@@ -77,7 +77,7 @@ class Transforme(Table):
                 if (tete[j] in outils.clefs_dictionnaire(file[i])) and not(tete[j] in clef_passage):
                     data[i][j]=file[i][tete[j]]
 
-        return (variables, data)
+        return Table(variables, data)
 
     def transforme_csv(self, file, valeur_manquante):
         '''Permet de rendre opérationnel des données importées à partir d'un fichier csv.
@@ -102,7 +102,7 @@ class Transforme(Table):
                 else:
                     file[i][j]=float(file[i][j])
         
-        return (file[0], file[1:])
+        return Table(file[0], file[1:])
 
 
     def transfo_format_date_json(self):
@@ -131,4 +131,6 @@ class Transforme(Table):
             minute=str(date[14:16])
             seconde=str(date[17:19])
             donnees[i][index]=annee+mois+jour+heure+minute+seconde
+            
+            return Table(self.var,donnees)
 
