@@ -8,8 +8,7 @@ class Somme(Estimateur):
     ---------
     variable : list of int
         Variable dont on veut calculer la somme. 
-        Attention, est ce que il faut prendre en compte le fait que la première ligne est le nom de la variable ?
-        Les données sont aussi surement sous forme de liste de liste, est ce que il faut changer la méthode ou la classe dataframe va permettre de faire le job ?
+
     
     Méthode
     -------
