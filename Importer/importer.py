@@ -1,7 +1,7 @@
 import gzip
 import csv
 import json
-
+from Table.transforme import Transforme
 
 class Importer():
     '''Cette classe permet d'importer des fichiers csv ou json. 
@@ -85,8 +85,8 @@ class Importer():
         with gzip.open(filepath, mode='rt',encoding='utf-8') as gzfile :
             data=json.load(gzfile)
 
-        return (data)
-
+        return data
+        #ici on renvoie direct la table en utilisant transforme_json nn ?
 
 #doc = "/Users/laurentgv/Desktop/PTD - données/synop.201301.csv.gz"
 #t = Importer.csv_file(doc)
