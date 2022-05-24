@@ -91,7 +91,7 @@ class Table:
 
     def l_index(self,variable,valeur):
         '''
-        Permet d'obtenir la liste d'index d'une valeur pour une valeur donnée
+        Permet d'obtenir la liste d'index d'une variable pour une valeur donnée
         
         Attributes
         ----------

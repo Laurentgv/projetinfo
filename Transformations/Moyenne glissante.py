@@ -1,6 +1,6 @@
 from Table import Table
 from Estimateur.moyenne import Moyenne
-from Transformations import Transformations
+from Transformations.Transformations import Transformations
 
 class Moyenne_glissante(Transformations):
     '''

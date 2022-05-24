@@ -1,5 +1,5 @@
 from Table import Table
-from Transformations import Transformations
+from Transformations.Transformations import Transformations
 
 class Selection_variable(Transformations):
     '''

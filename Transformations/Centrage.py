@@ -1,6 +1,6 @@
 from Estimateur.moyenne import Moyenne
-from Table import Table
-from Transformations import Transformations
+from Table.Table import Table
+from Transformations.Transformations import Transformations
 
 class Centrage(Transformations):
     '''
