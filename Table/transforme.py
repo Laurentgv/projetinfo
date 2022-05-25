@@ -1,7 +1,7 @@
-from Table import Table
+from table import Table
 import outils
 
-class Transforme(Table):
+class Transforme:
     '''Cette classe permet de transformer les données importées dans un format : Table
     
     Attributs
@@ -26,14 +26,13 @@ class Transforme(Table):
     >>>
     '''
 
-    def __init__(Table):
+    def __init__():
         '''
         Constructeur
 
         '''
-        super().__init__()
     
-    def transforme_json(self, file):
+    def transforme_json(file):
         '''Permet de transformer une liste de dictionnaire de la forme : ['nom':'...', 'id':'...', 'données':dict, 'time':'...']
         en une liste de liste de la forme : data[ligne][colonne]=data[individu][variable]. 
         
@@ -131,6 +130,4 @@ class Transforme(Table):
             minute=str(date[14:16])
             seconde=str(date[17:19])
             donnees[i][index]=annee+mois+jour+heure+minute+seconde
-            
-            return Table(self.var,donnees)
 
