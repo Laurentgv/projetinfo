@@ -1,18 +1,18 @@
-from Estimateur.moyenne import Moyenne
-from Table.Table import Table
-from Transformations.Transformations import Transformations
+from estimateur.moyenne import Moyenne
+from table.Table import Table
+from transformations.Transformations import Transformations
 
 class Centrage(Transformations):
     '''
     '''
-    def __init__(self):
+    def __init__():
         '''
         Constructeur
 
         '''
         pass
 
-    def transfo(self,tab:Table,variable):
+    def transfo(tab:Table,variable):
         '''
         Centrage de la variable
         
@@ -36,8 +36,10 @@ class Centrage(Transformations):
         '''
         index=(tab.var).index(variable)
         donnees=tab.extraire_var(variable)
-        moy = Moyenne.calcul(donnees)
+        print(donnees)
+        moy = Moyenne(donnees).calcul(None)
         for i in range (len(donnees)):
-            donnees[i]=donnees[i] - moy
-        (tab.data)[index]=donnees
+            if donnees[i]==None:
+                donnees[i]=donnees[i] - moy
+        tab.data[index]=donnees
         return Table(tab.var, tab.data)

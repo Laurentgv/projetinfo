@@ -1,11 +1,11 @@
-from Table.Table import Table
-from Transformations.Transformations import Transformations
+from table.Table import Table
+from transformations.Transformations import Transformations
 
 class Agregation_spatiale(Transformations):
 
     '''
     '''
-    def __init__(self, variable="National", L1, L2, L3, L4):
+    def __init__(self, L1, L2, L3, L4, variable="National"):
         '''
         Constructeur
 
