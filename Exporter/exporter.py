@@ -24,7 +24,7 @@ class Exporter():
 
 
     def export(nom, data):
-        '''Permet d' un fichier csv.
+        '''Permet d'exporter un fichier csv.
 
         Paramètres
         ----------
@@ -33,7 +33,7 @@ class Exporter():
 
         Retourne
         --------
-        data : list of list
+        data : Table
             On renvoie une liste de liste des données importées. Les données sont rangées de la manière suivante : data[ligne][colonne]=data[individu][variable].
             Avec data[0][0] qui correspond à la liste des noms des variables.
 

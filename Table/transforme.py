@@ -1,4 +1,4 @@
-from table import Table
+from table.Table import Table
 import outils
 
 class Transforme:
@@ -78,7 +78,7 @@ class Transforme:
 
         return Table(variables, data)
 
-    def transforme_csv(self, file, valeur_manquante):
+    def transforme_csv(file, valeur_manquante):
         '''Permet de rendre opérationnel des données importées à partir d'un fichier csv.
         
         Attributs
@@ -96,7 +96,7 @@ class Transforme:
         '''
         for i in range(1,len(file)):
             for j in range(len(file[0])):
-                if file[i][j]==valeur_manquante:
+                if file[i][j]==valeur_manquante or not(file[i][j]):
                     file[i][j]=None
                 else:
                     file[i][j]=float(file[i][j])
@@ -130,4 +130,6 @@ class Transforme:
             minute=str(date[14:16])
             seconde=str(date[17:19])
             donnees[i][index]=annee+mois+jour+heure+minute+seconde
+        return Table(self.var, donnees)
+
 

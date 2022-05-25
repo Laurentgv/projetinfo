@@ -1,6 +1,7 @@
 import gzip
 import csv
 import json
+from table.Table import Table
 from table.transforme import Transforme
 
 class Importer():
@@ -53,7 +54,7 @@ class Importer():
             synopreader = csv.reader(gzfile, delimiter=';') 
             for row in synopreader :
                 data.append(row)
-        return(Transforme.transforme_csv(data))
+        return(data)
     
     def json_file(filepath:str):
         '''Permet d'importer un fichier json.
