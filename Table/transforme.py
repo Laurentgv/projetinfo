@@ -56,7 +56,7 @@ class Transforme:
             clef_passage = outils.fusion(clef_passage, outils.clef_dict_imbrique(file[i], [])[1])
 
         #Cree le tableau de la bonne dimension de none
-        data=[[None for x in range(len(tete))] for x in range(len(file)-1)] # -1 dans le deuxième range due au format tuple du type Table.
+        data=[[None for x in range(len(tete))] for x in range(len(file))]
 
         #On titre les colonnes
         variables=[]
@@ -68,8 +68,8 @@ class Transforme:
             for j in clef_passage:
                 sous_clef=outils.clefs_dictionnaire(file[i][j])
                 for k in sous_clef:
-                    print(i, k)
-                    print(len(data), len(data[i]), len(tete), tete.index(k))
+                    #print(i, k)transforme
+                    #print(len(data), len(data[i]), len(tete), tete.index(k))
                     data[i][tete.index(k)]=file[i][j][k]
 
         #On remplit les données issues du dictionnaire principale
