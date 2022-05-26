@@ -38,7 +38,7 @@ class EcartType(Estimateur):
         >>>EcartType.calcul(L)
         >>>1.58
         '''
-        M=Moyenne.calcul(self.variable)
+        M=Moyenne(self.variable).calcul()
         S=0
         c=0
         for i in range(len(self.variable)):

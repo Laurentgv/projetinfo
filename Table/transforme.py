@@ -68,6 +68,8 @@ class Transforme:
             for j in clef_passage:
                 sous_clef=outils.clefs_dictionnaire(file[i][j])
                 for k in sous_clef:
+                    print(i, k)
+                    print(len(data), len(data[i]), len(tete), tete.index(k))
                     data[i][tete.index(k)]=file[i][j][k]
 
         #On remplit les données issues du dictionnaire principale
