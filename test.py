@@ -1,13 +1,27 @@
-from Importer.importer import Importer
+from estimateur.ecarttype import EcartType
+from estimateur.moyenne import Moyenne
+from estimateur.somme import Somme
+from importer.importer import Importer
+from table.Table import Table
+from table.transforme import Transforme
+from estimateur.ecarttype import EcartType
 
-#doc1 = "/Users/laurentgv/Desktop/PTD - données/csv/synop.201301.csv.gz"
-#t1 = Importer.csv_file(doc1)
-#print (t1[0])
+test_json=Importer.json_file("/Users/Louis/Downloads/données/données_électricité/2013-01.json.gz")
+print(test_json[0])
+test_json2=Transforme.transforme_json(test_json)
 
-#doc2 = "/Users/laurentgv/Desktop/PTD - données/json/2013-01.json.gz"
-#t2 = Importer.json_file(doc2)
-#print (t2[0])
+test_csv=Importer.csv_file("/Users/Louis/Downloads/données/données_météo/synop.201301.csv.gz")
+test_csv2=Transforme.transforme_csv(test_csv, 'mq')
+test_csv2.var
+test_csv2.data
 
-test1="/Users/laurentgv/Desktop/PTD - données/test2.csv"
-t1=Importer.csv_file(test1)
-print(t1)
+test_csv2.data[0]
+print(test_csv2.data[0])
+Somme(test_csv2.data[0]).calcul()
+Moyenne(test_csv2.data[0]).calcul(None)
+EcartType(test_csv2.data[0]).calcul()
+
+from transformations.Centrage import Centrage
+from transformations.Transformations import Transformations
+
+Centrage.transfo(test_csv2, 'pmer')
