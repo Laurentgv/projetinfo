@@ -1,3 +1,7 @@
+from table import Table
+import time
+from datetime import datetime
+
 def fusion(L1, L2):
     '''Concatène deux listes en gardant leur ordre et en supprimant les doublons.
         
@@ -81,3 +85,13 @@ def clef_dict_imbrique(data, clef_passage):
             clef_passage.append(i)
             sous_clef=fusion(sous_clef, clef_dict_imbrique(data[i], clef_passage)[0])
     return (fusion(clef, sous_clef), clef_passage)
+
+def type_date(table, variable, format):
+    #pour csv format = '%Y%m%d%H%M%S.0' --- datetime.strptime('20130101000012.0', '%Y%m%d%H%M%S.0')
+    #pour json date-heure format = '%Y-%m-%dT%H:%M:%S%z' --- datetime.strptime('2013-01-30T18:44:12+01:00', '%Y-%m-%dT%H:%M:%S%z')
+
+    i = table.var.index(variable)
+    print(table.data)
+    for j in range(len(table.data)):
+        table.data[j][i]=datetime.strptime(str(table.data[j][i]), format)
+    return table
