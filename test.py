@@ -1,3 +1,4 @@
+"""
 from estimateur.ecarttype import EcartType
 from estimateur.moyenne import Moyenne
 from estimateur.somme import Somme
@@ -5,6 +6,7 @@ from importer.importer import Importer
 from table.Table import Table
 from table.transforme import Transforme
 from estimateur.ecarttype import EcartType
+
 
 test_json=Importer.json_file("/Users/Louis/Downloads/données/données_électricité/2013-01.json.gz")
 print(test_json[0])
@@ -25,3 +27,22 @@ from transformations.Centrage import Centrage
 from transformations.Transformations import Transformations
 
 Centrage.transfo(test_csv2, 'pmer')
+
+"""
+############################################################
+
+#Test Laurent
+
+from estimateur.ecarttype import EcartType
+from estimateur.moyenne import Moyenne
+from estimateur.somme import Somme
+from importer.importer import Importer
+from table.Table import Table
+from table.transforme import Transforme
+from estimateur.ecarttype import EcartType
+
+test_json=Importer.json_file("/Users/laurentgv/Desktop/Données/2013-01.json")
+print(test_json[0])
+test_json2=Transforme.transforme_json(test_json)
+
+test_csv=Importer.csv_file("/Users/laurentgv/Desktop/Données/synop.201301.csv")

@@ -1,6 +1,6 @@
 import datetime
-from Table.Table import Table
-from Transformations.Transformations import Transformations
+from table.Table import Table
+from transformations.Transformations import Transformations
 
 class Fenetrage(Transformations):
     '''

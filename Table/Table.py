@@ -1,6 +1,6 @@
 import outils
 
-class Table:
+class Table():
     '''
     Classe dataframe
     
@@ -37,9 +37,9 @@ class Table:
         
         Example
         -------
-        >>> a=Table([pays,temperature],[[France,12],[UK,14]])
-        >>> a.enlev_var("temperature")
-        Table([pays],[[France],[UK]])
+        >>> a=Table(['pays','temperature'],[['France',12],['UK',14]])
+        >>> a.enlev_var('temperature')
+        Table(['pays'],[['France'],['UK']])
         '''
 
         index=(self.var).index(variable)

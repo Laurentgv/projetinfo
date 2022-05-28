@@ -1,11 +1,11 @@
-from Table.Table import Table
-from Transformations.Transformations import Transformations
+from table.Table import Table
+from transformations.Transformations import Transformations
 
 class Agregation_spatiale(Transformations):
 
     '''
     '''
-    def __init__(self, variable="National", L1, L2, L3, L4):
+    def __init__(self, L1, L2, L3, L4, variable="National"):
         '''
         Constructeur
 
@@ -50,6 +50,10 @@ class Agregation_spatiale(Transformations):
 
         Examples
         --------
+        >>> a=Table([regions,superficie, latitude, temperature],[[IdF,19,4523,28],[IdF,19,32149,14],[Normandie,43,12445,19],[Normandie,43,124133,21]])
+        >>> se=Agregation_spatiale([temperature],[],[latitude],[superficie],"regions")
+        >>> se.transfo(a)
+        Table([regions,superficie, latitude, temperature],[[19,21,IdF],[43,20,Normandie]])
         '''
         def aux(agreg):
             tab=Table((self.var), [])
