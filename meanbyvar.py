@@ -1,5 +1,5 @@
 from estimateur.moyenne import Moyenne
-from table import Table
+from table.Table import Table
 from transformations.Transformations import Transformations
 import outils
 
@@ -27,7 +27,7 @@ class meanbyvar(Transformations):
                     intermediaire[i]=data[i]
             for i in range(len(variables)):
                 T=Table(variables, intermediaire)
-                sortie[L.index(valeur)][i]=Moyenne(Table.Table.extraire_var(T, variables[i]))
+                sortie[L.index(valeur)][i]=Moyenne(Table.extraire_var(T, variables[i]))
         
         return Table(variables, L)
 
