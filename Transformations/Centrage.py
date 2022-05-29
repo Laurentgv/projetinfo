@@ -36,7 +36,6 @@ class Centrage(Transformations):
         >>> a1.centrage(Temperature)
         ([Temperature],[-1,0,1])
         '''
-        index=(tab.var).index(variable)
         donnees=tab.extraire_var(variable)
         moy = Moyenne(donnees).calcul()
         for i in range (len(donnees)):

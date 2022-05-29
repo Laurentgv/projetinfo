@@ -37,7 +37,6 @@ class Normalisation(Transformations):
         >>> a1.normalisation(Temperature)
         ([Temperature],[[1],[1],[1]])
         '''
-        index=(tab.var).index(variable)
         donnees=tab.extraire_var(variable)
         ecart = EcartType(donnees).calcul()
         assert(ecart!=0)
