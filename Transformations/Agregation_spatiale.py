@@ -1,13 +1,11 @@
 from table.Table import Table
 from transformations.Transformations import Transformations
-from estimateur.somme import Somme
-from estimateur.moyenne import Moyenne
 
 class Agregation_spatiale(Transformations):
 
     '''
     '''
-    def __init__(self, L1, L2, L3, L4, variable="National"):
+    def __init__(self, L1, L2, L3, L4, variable='National'):
         '''
         Constructeur
 
@@ -58,8 +56,8 @@ class Agregation_spatiale(Transformations):
         Table([regions,superficie, latitude, temperature],[[19,21,IdF],[43,20,Normandie]])
         '''
         def aux(agreg):
-            tab=Table((table.var), [])
-
+            tab2=table.enlev_var(self.variable)
+            tab=Table([tab2.var], [])
 
             for i in range (len(agreg)):
                 L=[] #on crée pour chaque agrégation, la liste de data pour l'agrégation.
@@ -67,10 +65,10 @@ class Agregation_spatiale(Transformations):
                 le=len(l_indice)#nombre d'individu pour chaque agregation
                 for j in range (len(table.var)):
                     if (table.var)[j] in self.L1:#moyenne
-                        #m=0
-                        #for k in range (le):
-                        #    m+=(table.data)[l_indice[k]][j]
-                        #m=m/len(l_indice)
+                        m=0
+                        for k in range (le):
+                            m+=(table.data)[l_indice[k]][j]
+                        m=m/le
                         L.append(m)
                     elif (table.var)[j] in self.L2:#somme
                         S=0
@@ -81,17 +79,19 @@ class Agregation_spatiale(Transformations):
                         value=(table.data)[l_indice[0]][j] #on prend la première valeur de la variable pour cet agreg car elle ne change pas pour L4
                         L.append(value)
 
-                (tab.data).append(L+[agreg[i]])
+                L=L+[agreg[i]]
+                (tab.var).append(self.variable)
+                (tab.data).append(L)
 
-            #L3 variables qu'on retire de la table
+            #L3 variables qu'on retire de la table, on doit juste les retirer des variables car on ne les pas ajoutés aux données
             for i in range (len(self.L3)):
-                tab.enlev_var(self.L3[i])
+                (tab.var).pop(self.L3[i])
         
             return tab
         #fin fonction auxiliaire
         
-        if self.variable=="National":
-            agreg=["National"]
+        if self.variable=='National':
+            agreg=['National']
         elif self.variable in table.var:
             agreg=list(set(table.extraire_var(self.variable))) #Pour séléctionner les valeurs distinctes de la variable d'agregation
         else : 

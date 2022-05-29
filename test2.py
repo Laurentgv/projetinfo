@@ -9,9 +9,10 @@ from estimateur.somme import Somme
 #print(L2)
 #Table([pays],[[France],[UK]])
 
-a=Table(['regions','superficie', 'latitude', 'temperature'],[['IdF',19,4523,28],['IdF',19,32149,14],['Normandie',43,12445,19],['Normandie',43,124133,21]])
-#se=Agregation_spatiale(['temperature'],[],['latitude'],['superficie'],'regions')
-#l=se.transfo(a)
-#print(l.data)
+a=Table(['region','superficie', 'latitude', 'temperature'],[['IdF',19,4523,28],['IdF',19,32149,14],['Normandie',43,12445,19],['Normandie',43,124133,21]])
+se=Agregation_spatiale(['temperature'],[],['latitude'],['superficie'],'region')
+l=se.transfo(a)
 
-s=Somme.calcul(a)
+print(l.var)
+print(l.data)
+
