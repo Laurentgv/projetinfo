@@ -63,9 +63,9 @@ class Table():
 
         Example
         -------
-        >>> a=Table([pays],[[France],[UK]])
-        >>> a.ajouter_var("temperature", [12,14])
-        a=Table([pays,temperature],[[France,12],[UK,14]])
+        >>> a=Table(['pays'],[['France'],['UK']])
+        >>> a.ajouter_var('temperature', [12,14])
+        a=Table(['pays','temperature'],[['France',12],['UK',14]])
         '''
         variables=self.var
         data=self.data

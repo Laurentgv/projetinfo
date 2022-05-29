@@ -1,5 +1,7 @@
 from table.Table import Table
 from transformations.Transformations import Transformations
+from estimateur.somme import Somme
+from estimateur.moyenne import Moyenne
 
 class Agregation_spatiale(Transformations):
 
@@ -56,30 +58,30 @@ class Agregation_spatiale(Transformations):
         Table([regions,superficie, latitude, temperature],[[19,21,IdF],[43,20,Normandie]])
         '''
         def aux(agreg):
-            tab=Table((self.var), [])
+            tab=Table((table.var), [])
 
 
             for i in range (len(agreg)):
                 L=[] #on crée pour chaque agrégation, la liste de data pour l'agrégation.
-                l_indice=self.l_index(self.variable, agreg[i]) #retourne une liste avec les index des individus dans l'agregation i
+                l_indice=table.l_index(self.variable, agreg[i]) #retourne une liste avec les index des individus dans l'agregation i
                 le=len(l_indice)#nombre d'individu pour chaque agregation
                 for j in range (len(table.var)):
-                    if (table.var)[j] in self.L1:
-                        m=0
-                        for k in range (le):
-                            m+=(table.data)[l_indice[k]][j]
-                        m=m/len(l_indice)
+                    if (table.var)[j] in self.L1:#moyenne
+                        #m=0
+                        #for k in range (le):
+                        #    m+=(table.data)[l_indice[k]][j]
+                        #m=m/len(l_indice)
                         L.append(m)
-                    elif (table.var)[j] in self.L2:
+                    elif (table.var)[j] in self.L2:#somme
                         S=0
                         for k in range (le):
                             S+=(table.data)[l_indice[k]][j]
                         L.append(S)
-                    elif (table.var)[j] in self.L4:
+                    elif (table.var)[j] in self.L4:#ne change pas
                         value=(table.data)[l_indice[0]][j] #on prend la première valeur de la variable pour cet agreg car elle ne change pas pour L4
                         L.append(value)
 
-                (tab.data).append(L+agreg[i])
+                (tab.data).append(L+[agreg[i]])
 
             #L3 variables qu'on retire de la table
             for i in range (len(self.L3)):
