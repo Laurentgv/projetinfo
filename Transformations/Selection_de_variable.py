@@ -1,16 +1,21 @@
-from table import Table
+from table.Table import Table
 from transformations.Transformations import Transformations
 
 class Selection_variable(Transformations):
     '''
     '''
-    def __init__(Table):
+    def __init__(self, variable):
         '''
         Constructeur
-        '''
-        super().__init__()
 
-    def transfo(self):
+        Attributes
+        ----------
+        variable : list str
+            liste des variables qui constituent la nouvelle table
+        '''
+        self.variable=variable
+
+    def transfo(self,tab:Table):
         '''
         Permet à l'utilisateur de choisir les variables qu'il souhaite visualiser.
 
@@ -29,32 +34,12 @@ class Selection_variable(Transformations):
         [(1, Température),
         (2, Ville),
         (3, Date)]
-        Choisissez les variables ques vous souhaitez visualiser.
-        Saisissez N si vous avez fini votre saisie
-        >>> 1
-        >>> 2
         Table([Température, Ville],[[19,Paris],[20,Rennes],[32,Marseille]])
         ''' 
 
-        for i in range (len(self.var)):
-            print((i,(self.var)[i]))
-        print("Choisissez les variables ques vous souhaitez visualiser.")
-        print("Saisissez N si vous avez fini votre saisie")
-
-        data=self.data
-        a = input()
-        assert(a!="N")
-        L2=[a]
-        var=[]
-        donnees=[]
-        tab=Table([],[])
-        while a!="N":
-            var.append(self.var[a])
-            a = input()
-            L2.append(a)
-        for i in range (len(L2)):
-            b=L2[i]
-            v=(self.var)[b]
-            don=self.extraire_var(v)
-            tab.ajouter_var(v,don)
-        return tab
+        l=self.variable
+        table=Table(l,[])
+        for i in range (len(l)):
+            don=tab.extraire_var(l[i])
+            table.ajouter_var(l[i],don)
+        return table

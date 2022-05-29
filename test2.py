@@ -21,6 +21,8 @@ a=Table(["pays","temperature"],[["France",12],["UK",14],["US",14]])
 #print(l.var)
 #print(l.data)
 
-b=Centrage.transfo(a,'temperature')
-print(b.var)
-print(b.data)
+#b=Centrage.transfo(a,'temperature')
+#print(b.var)
+#print(b.data)
+l=[1,2,3]
+print(l+l)
