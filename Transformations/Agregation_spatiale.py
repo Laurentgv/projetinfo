@@ -51,7 +51,7 @@ class Agregation_spatiale(Transformations):
         >>> se.transfo(a)
         Table([regions,superficie, latitude, temperature],[[19,21,IdF],[43,20,Normandie]])
         '''
-        def aux(agreg):
+        def aux(agreg:list):
             tab2=table.enlev_var(self.variable)
             tab=Table([tab2.var], [])
 
