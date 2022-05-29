@@ -24,7 +24,6 @@ test_json4=Table.enlev_var(test_json3, 'statut_rte')
 test_json4=Table.enlev_var(test_json3, 'statut_grtgaz')
 test_json4=Table.enlev_var(test_json3, 'fields')
 test_json4=Table.enlev_var(test_json3, 'recordid')
-Table.extraire_var
 
 #Fenetrage should be working by now
 

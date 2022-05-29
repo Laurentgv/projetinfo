@@ -1,3 +1,4 @@
+from estimateur.moyenne import Moyenne
 from table import Table
 import time
 from datetime import datetime
@@ -91,7 +92,41 @@ def type_date(table, variable, format):
     #pour json date-heure format = '%Y-%m-%dT%H:%M:%S%z' --- datetime.strptime('2013-01-30T18:44:12+01:00', '%Y-%m-%dT%H:%M:%S%z')
 
     i = table.var.index(variable)
+    table.var[i]='date'
     print(table.data)
     for j in range(len(table.data)):
         table.data[j][i]=datetime.strptime(str(table.data[j][i]), format)
     return table
+
+def add_week(table):
+    d=table.var.index('date')
+    table.var.append('week')
+    for i in range(len(table.data)):
+        table.data[i].append(table.data[i][d].isocalendar()[1])
+    return table
+
+def toto(table, variable):
+    variables=table.var
+    data=table.data
+    d=variables.index(variable)
+    #on recupère la liste des differentes valeures
+    L=[]
+    for i in range(len(data)):
+        fusion(L, [data[i][d]])
+    
+    #On créé un tableau de none
+    sortie=[[None for x in range(len(variables))] for x in range(len(L))]
+
+    for valeur in L:
+        intermediaire=[[None for x in range(len(variables))] for x in range(len(data))]
+        for i in range(len(data)):
+            if data[i][d]==valeur:
+                intermediaire[i]=data[i]
+        for i in range(len(variables)):
+            T=Table(variables, intermediaire)
+            sortie[L.index(valeur)][i]=Moyenne(Table.Table.extraire_var(T, variables[i]))
+    
+    return Table(variables, L)
+
+test=Table(['week', 'vitesse'], [[1, 50], [1, 100], [2, 10], [2, 20], [3, 5]])
+toto(test, 'week')
