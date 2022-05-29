@@ -5,14 +5,14 @@ from transformations.Transformations import Transformations
 class Centrage(Transformations):
     '''
     '''
-    def __init__(self):
+    def __init__():
         '''
         Constructeur
 
         '''
         pass
 
-    def transfo(self,tab:Table,variable):
+    def transfo(tab:Table,variable):
         '''
         Centrage de la variable
         
@@ -22,6 +22,8 @@ class Centrage(Transformations):
 
         Attributes
         ----------
+        tab: Table
+            Table sur laquelle on travaille
         variable : str
             variable dont on souhaite centré les données
 
@@ -36,8 +38,9 @@ class Centrage(Transformations):
         '''
         index=(tab.var).index(variable)
         donnees=tab.extraire_var(variable)
-        moy = Moyenne.calcul(donnees)
+        moy = Moyenne(donnees).calcul()
         for i in range (len(donnees)):
-            donnees[i]=donnees[i] - moy
-        (tab.data)[index]=donnees
-        return Table(tab.var, tab.data)
+            donnees[i]=donnees[i]-moy
+        tab.enlev_var(variable)
+        tab.ajouter_var(variable,donnees)
+        return tab
