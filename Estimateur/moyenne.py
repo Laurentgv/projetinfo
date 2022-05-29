@@ -48,7 +48,9 @@ class Moyenne(Estimateur):
                     m+=1
                 else:
                     S+=self.variable[i]
-            S=S/len(self.variable)
+            print("toto")
+            print("m="+str(m))
+            S=S/(len(self.variable)-m)
         else:
             if not(round(Somme(poids).calcul())==1):
                 raise Exception("Attention! La somme des poids n'est pas égale à 1.")
@@ -61,3 +63,7 @@ class Moyenne(Estimateur):
         if not(m==0):
             print('Attention, la moyenne qui vient d être calculée comporte '+str(m)+' valeurs manquantes')
         return S
+        
+
+moy=[50, 100, None, None, None]
+Moyenne(moy).calcul(None)
