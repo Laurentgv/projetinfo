@@ -17,7 +17,35 @@ from transformations.Jointure import Jointure
 from transformations.Moyenne_glissante import Moyenne_glissante
 from transformations.Normalisation import Normalisation
 from transformations.Selection_de_variable import Selection_variable
+from transformations.Transformations import Transformations
 
 import meanbyvar
 import outils
 
+from operation import AbstractOperation
+from table import Table
+
+class Pipeline():
+    '''
+    '''
+    def __init__(self):
+        '''
+        '''
+        self.operations = []
+    
+    def ajout_etape(self,etape:Transformations):
+        '''[summary]
+
+        Parameters
+        ----------
+        etape : Transformations
+            opération ajoutée à la pipeline
+        
+        '''
+        self.operations.append(etape)
+
+    def run(self,table) -> Table :
+        
+        for etape in self.operations :
+            table = etape(table).transfo()
+        return table
