@@ -40,6 +40,8 @@ class Moyenne(Estimateur):
         Exemples
         --------
         '''
+        print("Tableau=")
+        print(self.variable)
         S=0
         m=0
         if not(poids):
