@@ -11,7 +11,7 @@ class Append(Transformations):
         '''
         pass
 
-    def transfo(table1, table2):
+    def transfo(table1:Table, table2:Table):
         #Création d'un tableau de la dimension finale de 'None'
         sortie=[[None for x in range(len(outils.fusion(table1.var, table2.var))) ] for x in range(len(table1.data)+len(table2.data)-1)]
         #On rempli tout de suite la première ligne avec le nom des colonnes

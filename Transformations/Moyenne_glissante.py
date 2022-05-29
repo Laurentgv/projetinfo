@@ -1,4 +1,4 @@
-from table import Table
+from table.Table import Table
 from estimateur.moyenne import Moyenne
 from transformations.Transformations import Transformations
 
@@ -23,27 +23,35 @@ class Moyenne_glissante(Transformations):
         '''
         self.periode=periode
 
-    def transfo(self):
+    def transfo(self, table:Table, variable):
         '''
         Transformation de la liste en moyenne glissante
         
         Attributes
         ----------
+        table : Table
+            Table sur laquelle on travaille
+        variable : str
+            Variable sur laquelle on veut obtenir une moyenne glissante
         Examples
         --------
-        >>> import Table
-        >>> a=Table(["Nom_variable"],[[24],[3],[3],[3],[3],[3],[3],[3],[9]])
-        >>> a.calcul(3)
-        [10,3,3,3,3,3,5]
+        >>> a=Table(['Nom_variable'],[[24],[3],[3],[3],[3],[3],[3],[3],[9]])
+        >>> b=Moyenne_glissante(3)
+        >>> b.transfo(a, 'Nom_variable')
+        Table(['Nom_variable'],[[None],[10],[3],[3],[3],[3],[3],[5],[None]])
         '''
-        L=[]
-        var=self.variable
+        
         assert(len(var)==1)
-        data=self.data
-        le=len(var)
-        for i in range (le-self.periode+1):
+        data=table.extraire_var(variable)
+        le=len(data)
+        L=le*[None]
+        start=int(le/self.periode) #on prend la partie entiere, les valeurs avant le start sont des None
+        for i in range (start,le-self.periode+1):
             l=[]
             for j in range (self.periode):
                 l.append(data[i+j])
-            m=Moyenne.calcul(l)
-            L.append(m)
+            m=Moyenne(l).calcul(None)
+            L[i]=m
+        table.enlev_var(variable)
+        table.ajouter_var(variable,L)
+        return table
