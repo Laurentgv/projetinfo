@@ -12,7 +12,7 @@ class Table:
         Tableau des donnees
     '''
 
-    def __init__(self, var, data):
+    def __init__(self, var:list, data:list):
         '''
         Constructeur
         
@@ -41,9 +41,8 @@ class Table:
         >>> a.enlev_var("temperature")
         Table([pays],[[France],[UK]])
         '''
-
-        index=(self.var).index(variable)
         var=self.var
+        index=var.index(variable)
         var.pop(index)
         data=self.data
         for j in range (len(data)):
