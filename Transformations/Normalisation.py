@@ -1,21 +1,19 @@
-from Estimateur.ecarttype import EcartType
-from Table.Table import Table
-from Transformations.Transformations import Transformations
+from estimateur.ecarttype import EcartType
+from table.Table import Table
+from transformations.Transformations import Transformations
 
 class Normalisation(Transformations):
     '''
     Classe de normalisation des tables
-
     
     '''
-    def __init__(self):
+    def __init__():
         '''
         Constructeur
-
         '''
-        super().__init__()
+        pass
 
-    def transfo(self, variable):
+    def transfo(tab:Table, variable):
         '''
         Normalisation de la variable
         
@@ -25,21 +23,22 @@ class Normalisation(Transformations):
         
         Attributes
         ----------
+        tab: Table
+            Table sur laquelle on travaille
         variable : str
             nom de la variable qu'on souhaite normaliser
-
         Examples
         --------
         >>> a1=([Temperature],[[2],[2],[2]])
         >>> a1.normalisation(Temperature)
         ([Temperature],[[1],[1],[1]])
         '''
-        index=(self.var).index(variable)
-        ecart = EcartType.calcul((self.var)[index])
+        donnees=tab.extraire_var(variable)
+        ecart = EcartType(donnees).calcul()
         assert(ecart!=0)
-        donnees=self.extraire_var(variable)
+
         for i in range (len(donnees)):
             donnees[i]=donnees[i]/ecart
-        (self.data)[index]=donnees
-        return Table(self.var,self.data)
-    
+        tab.enlev_var(variable)
+        tab.ajouter_var(variable,donnees)
+        return tab
