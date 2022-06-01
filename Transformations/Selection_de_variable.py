@@ -26,7 +26,7 @@ class Selection_variable(Transformations):
         Examples
         --------
         >>> a=Table([Température, Ville, Date],[[19,Paris,140418],[20,Rennes,140418],[32,Marseille,140424]])
-        >>> a.fun()
+        >>> a.transfo()
         [(1, Température),
         (2, Ville),
         (3, Date)]

@@ -22,7 +22,6 @@ from transformations.Transformations import Transformations
 import meanbyvar
 import outils
 
-from operation import AbstractOperation
 from table import Table
 
 class Pipeline():
@@ -34,7 +33,7 @@ class Pipeline():
         self.operations = []
     
     def ajout_etape(self,etape:Transformations):
-        '''[summary]
+        '''
 
         Parameters
         ----------
