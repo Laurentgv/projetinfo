@@ -1,5 +1,5 @@
-from table.Table import Table
-from transformations.Transformations import Transformations
+from table.table import Table
+from transformations.transformation import Transformations
 
 class Jointure(Transformations):
     '''

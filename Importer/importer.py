@@ -1,7 +1,7 @@
 import gzip
 import csv
 import json
-from table.Table import Table
+from table.table import Table
 from table.transforme import Transforme
 
 class Importer():

@@ -2,10 +2,10 @@ from estimateur.ecarttype import EcartType
 from estimateur.moyenne import Moyenne
 from estimateur.somme import Somme
 from importer.importer import Importer
-from table.Table import Table
+from table.table import Table
 from table.transforme import Transforme
 from estimateur.ecarttype import EcartType
-from transformations.Normalisation import Normalisation
+from transformations.normalisation import Normalisation
 import time
 from datetime import datetime
 import outils
