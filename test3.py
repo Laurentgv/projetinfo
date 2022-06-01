@@ -17,7 +17,7 @@ from transformations.transformation import Transformations
 from transformations.typedate import Typedate
 from transformations.meanbyvar import Meanbyvar
 from transformations.makekey import Makekey
-
+from figure.plot import Plot
 
 
 ##JSON
@@ -149,3 +149,8 @@ cor=Correlation(Table.extraire_var(Yes, 't').data).calcul(Table.extraire_var(Yes
 
 EcartType(Table.extraire_var(Yes, 'consommation_brute_totale').data).calcul()
 EcartType(Table.extraire_var(Yes, 't').data).calcul()
+
+Plot(Table.extraire_var(Yes, 't')).scatterplot(Table.extraire_var(Yes, 'consommation_brute_totale'), 'TEST')
+
+Plot(Table.extraire_var(Yes, 't')).scatlinreg(Table.extraire_var(Yes, 'consommation_brute_totale'), 'TEST')
+
