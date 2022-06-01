@@ -51,17 +51,18 @@ def supp_var(entree, M):
 
 ###JSON
 fichier_a_importer_json=["2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12"]
-#variables_a_supp=['date', 'record_timestamp', 'heure', 'statut_terega', 'statut_rte', 'statut_grtgaz', 'fields', 'recordid', 'consommation_brute_gaz_terega', 'consommation_brute_electricite_rte', 'consommation_brute_gaz_grtgaz', 'consommation_brute_gaz_totale']
+variables_a_supp_json=['date', 'record_timestamp', 'heure', 'statut_terega', 'statut_rte', 'statut_grtgaz', 'fields', 'recordid', 'consommation_brute_gaz_terega', 'consommation_brute_electricite_rte', 'consommation_brute_gaz_grtgaz', 'consommation_brute_gaz_totale']
 sortie_json=mega_json(fichier_a_importer_json)
 sortie_json=Table.enlev_var(sortie_json, 'date')
 sortie_json=Typedate.transfo(sortie_json, 'date_heure', '%Y-%m-%dT%H:%M:%S%z')
 sortie_json=Addweek.transfo(sortie_json)
-conso=Table.extraire_var(sortie_json, 'consommation_brute_totale')
-week=Table.extraire_var(sortie_json, 'week')
-region=Table.extraire_var(sortie_json, 'region')
-conso_week=Table.add_var_special(week, conso.var[0],conso.data)
-cons_week_region=Table.ajouter_var(conso_week, region.var[0], region.data)
-sortie_json=Makekey.transfo(cons_week_region, 'region', 'week')
+sortie_json=supp_var(sortie_json, variables_a_supp_json)
+#conso=Table.extraire_var(sortie_json, 'consommation_brute_totale')
+#week=Table.extraire_var(sortie_json, 'week')
+#region=Table.extraire_var(sortie_json, 'region')
+#conso_week=Table.add_var_special(week, conso.var[0],conso.data)
+#cons_week_region=Table.ajouter_var(conso_week, region.var[0], region.data)
+sortie_json=Makekey.transfo(sortie_json, 'region', 'week')
 sortie_json=Table.enlev_var(sortie_json, 'region')
 sortie_json=Table.enlev_var(sortie_json, 'week')
 sortie_json=Meanbyvar.transfo(sortie_json, 'clé_regionweek')
