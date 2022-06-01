@@ -21,6 +21,5 @@ class Reglin(Estimateur):
         L=[]
         for i in range(len(variable)):
             L.append(f(variable[i]))
-        Rcarre=Covariance(variable).calcul(L)
-        print("hey")
+        Rcarre=(Covariance(variable).calcul(L))**2
         return (beta0, beta1, Rcarre)
