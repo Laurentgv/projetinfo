@@ -5,7 +5,7 @@ class Agregation_spatiale(Transformations):
 
     '''
     '''
-    def __init__(self, L1, L2, L3, L4, variable='National'):
+    def __init__(self, L1:list, L2:list, L3:list, L4:list, variable:str='National'):
         '''
         Constructeur
         Attributes
@@ -24,12 +24,11 @@ class Agregation_spatiale(Transformations):
         Examples
         --------
         '''
-        self.variable=variable
         self.L1=L1
         self.L2=L2
         self.L3=L3
         self.L4=L4
-
+        self.variable=variable
 
     def transfo(self,table:Table):
         '''
@@ -46,19 +45,23 @@ class Agregation_spatiale(Transformations):
             Table des variables et données
         Examples
         --------
-        >>> a=Table([regions,superficie, latitude, temperature],[[IdF,19,4523,28],[IdF,19,32149,14],[Normandie,43,12445,19],[Normandie,43,124133,21]])
-        >>> se=Agregation_spatiale([temperature],[],[latitude],[superficie],"regions")
-        >>> se.transfo(a)
-        Table([regions,superficie, latitude, temperature],[[19,21,IdF],[43,20,Normandie]])
+        >>> a=Table(['region','superficie', 'latitude', 'temperature'],[['IdF',19,4523,28],['IdF',19,32149,14],['Normandie',43,12445,19],['Normandie',43,124133,21]])
+        >>> se=Agregation_spatiale(['temperature'],[],['latitude'],['superficie'],'region')
+        >>> l=se.transfo(a)
+        >>> print(l.var)
+        ['superficie', 'temperature', 'region']
+        >>> print(l.data)
+        [[43, 20.0, 'Normandie'], [19, 21.0, 'IdF']]
         '''
-        def aux(agreg:list):
-            tab2=table.enlev_var(self.variable)
-            tab=Table([tab2.var], [])
-
+        def aux(table:Table,agreg:list):
+            #tab2=table.enlev_var(self.variable)
+            tab=Table([], [])
+            
             for i in range (len(agreg)):
                 L=[] #on crée pour chaque agrégation, la liste de data pour l'agrégation.
                 l_indice=table.l_index(self.variable, agreg[i]) #retourne une liste avec les index des individus dans l'agregation i
                 le=len(l_indice)#nombre d'individu pour chaque agregation
+                l=[]
                 for j in range (len(table.var)):
                     if (table.var)[j] in self.L1:#moyenne
                         m=0
@@ -66,23 +69,30 @@ class Agregation_spatiale(Transformations):
                             m+=(table.data)[l_indice[k]][j]
                         m=m/le
                         L.append(m)
+                        l.append((table.var)[j])
                     elif (table.var)[j] in self.L2:#somme
                         S=0
                         for k in range (le):
                             S+=(table.data)[l_indice[k]][j]
                         L.append(S)
+                        l.append((table.var)[j])
                     elif (table.var)[j] in self.L4:#ne change pas
                         value=(table.data)[l_indice[0]][j] #on prend la première valeur de la variable pour cet agreg car elle ne change pas pour L4
                         L.append(value)
+                        l.append((table.var)[j])
 
                 L=L+[agreg[i]]
-                (tab.var).append(self.variable)
                 (tab.data).append(L)
-
+                l=l+[self.variable]
+                (tab.var)=l
             #L3 variables qu'on retire de la table, on doit juste les retirer des variables car on ne les pas ajoutés aux données
             for i in range (len(self.L3)):
-                (tab.var).pop(self.L3[i])
-        
+                dp=(self.L3)[i]
+                ind=table.var.index(dp)
+                del table.var[ind]
+
+
+
             return tab
         #fin fonction auxiliaire
         
@@ -93,6 +103,6 @@ class Agregation_spatiale(Transformations):
         else : 
             raise Exception("La variable saisie n'est pas une variable possible d'agrégation")
         
-        return aux(agreg)
+        return aux(table,agreg)
 
         
