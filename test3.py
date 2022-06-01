@@ -72,6 +72,7 @@ region=Table.extraire_var(stations_table, 'Region')
 id_region=Table.add_var_special(id, region.var[0], region.data)
 test_csv5=Mapping.transfo(test_csv3, 'numer_sta', id_region, 'ID', 'Region')
 test_csv6=Addweek.transfo(test_csv5)
+
 test_csv7=Table.enlev_var(test_csv6, 'numer_sta')
 test_csv7=Table.enlev_var(test_csv6, 'date')
 test_csv7=Table.enlev_var(test_csv6, 'pmer')
