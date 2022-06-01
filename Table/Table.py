@@ -41,13 +41,12 @@ class Table:
         '''
 
         index=(self.var).index(variable)
-        del self.var[index]
+        var=self.var
+        var.pop(index)
         data=self.data
         for j in range (len(data)):
-            drap=data[j]
-            del drap[index]
-            data[j]=drap
-        return Table(self.var,data)
+            (data[j]).pop(index)
+        return Table(var,data)
 
     def ajouter_var(self,variable:str,donnees:list):
         '''
@@ -86,7 +85,7 @@ class Table:
         L=[]
         for i in range(len(self.data)):
             L.append((self.data)[i][index])
-        return L
+        return Table([variable], L)
 
     def l_index(self,variable:str,valeur):
         '''
@@ -106,3 +105,15 @@ class Table:
             if donnees[i]==valeur:
                 L.append(i)
         return L
+
+    def add_var_special(self,variable, donnees):
+        variables=self.var
+        data=self.data
+        variables.append(variable)
+        sortie=[]
+        for i in range (len(data)):
+            L=[]
+            L.append(data[i])
+            L.append(donnees[i])
+            sortie.append(L)
+        return Table(variables,sortie)
