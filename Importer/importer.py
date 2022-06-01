@@ -87,8 +87,11 @@ class Importer():
             data=json.load(gzfile)
 
         return (data)
-        #ici on renvoie direct la table en utilisant transforme_json nn ?
 
-#doc = "/Users/laurentgv/Desktop/PTD - données/synop.201301.csv.gz"
-#t = Importer.csv_file(doc)
-#print (t[0])
+    def csv_not_gz(filepath:str):
+        data = []
+        with  open(filepath, mode='rt') as gzfile :
+            synopreader = csv.reader(gzfile, delimiter=';') 
+            for row in synopreader :
+                data.append(row)
+        return(data)
