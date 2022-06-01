@@ -21,7 +21,7 @@ class Reglin(Estimateur):
         SSL=0
         SST=0
         for i in range(len(self.variable)):
-            SSL+=(f(variable[i])-Y)**2
-            SST+=(variable[i]-Y)**2
+            SSL+=(f(variable[i])-Y)*(f(variable[i])-Y)
+            SST+=(variable[i]-Y)*(variable[i]-Y)
         Rcarre=SSL/SST
         return (beta0, beta1, Rcarre)

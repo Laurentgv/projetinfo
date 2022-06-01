@@ -147,9 +147,6 @@ Yes=Mapping.transfo(test_json8, 'clé_regionweek', test_csv10, 'clé_Regionweek'
 
 cor=Correlation(Table.extraire_var(Yes, 't').data).calcul(Table.extraire_var(Yes, 'consommation_brute_totale').data)
 
-EcartType(Table.extraire_var(Yes, 'consommation_brute_totale').data).calcul()
-EcartType(Table.extraire_var(Yes, 't').data).calcul()
-
 Plot(Table.extraire_var(Yes, 't')).scatterplot(Table.extraire_var(Yes, 'consommation_brute_totale'), 'TEST')
 
 Plot(Table.extraire_var(Yes, 't')).scatlinreg(Table.extraire_var(Yes, 'consommation_brute_totale'), 'TEST')
