@@ -18,10 +18,8 @@ class Reglin(Estimateur):
         beta0=Y-beta1*X
         def f(x):
             return beta1*x+beta0
-        SSL=0
-        SST=0
-        for i in range(len(self.variable)):
-            SSL+=(variable[i]-f(variable[i]))*(variable[i]-f(variable[i]))
-            SST+=(variable[i]-Y)*(variable[i]-Y)
-        Rcarre=(SSL/SST)
+        L=[]
+        for i in range(len(variable)):
+            L.append(f(variable[i]))
+        Rcarre=Covariance(variable).calcul(L)
         return (beta0, beta1, Rcarre)
