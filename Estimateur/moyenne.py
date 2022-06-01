@@ -1,6 +1,6 @@
 from estimateur.estimateur import Estimateur
 from estimateur.somme import Somme
-from table import Table
+from table.table import Table
 
 class Moyenne(Estimateur):
     ''''Permet de calculer la moyenne pondérée d'une variable numérique.
