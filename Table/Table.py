@@ -1,5 +1,3 @@
-#import outils
-
 class Table:
     '''
     Classe dataframe
