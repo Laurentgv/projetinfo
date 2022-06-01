@@ -1,5 +1,5 @@
 from estimateur.moyenne import Moyenne
-from table import Table
+from table import table
 import time
 from datetime import datetime
 
@@ -98,32 +98,9 @@ def type_date(table, variable, format):
         table.data[j][i]=datetime.strptime(str(table.data[j][i]), format)
     return table
 
-def add_week(table):
-    d=table.var.index('date')
-    table.var.append('week')
-    for i in range(len(table.data)):
-        table.data[i].append(table.data[i][d].isocalendar()[1])
-    return table
-
-def toto(table, variable):
-    variables=table.var
-    data=table.data
-    d=variables.index(variable)
-    #on recupère la liste des differentes valeures
-    L=[]
-    for i in range(len(data)):
-        fusion(L, [data[i][d]])
-    
-    #On créé un tableau de none
-    sortie=[[None for x in range(len(variables))] for x in range(len(L))]
-
-    for valeur in L:
-        intermediaire=[[None for x in range(len(variables))] for x in range(len(data))]
-        for i in range(len(data)):
-            if data[i][d]==valeur:
-                intermediaire[i]=data[i]
-        for i in range(len(variables)):
-            T=Table(variables, intermediaire)
-            sortie[L.index(valeur)][i]=Moyenne(Table.Table.extraire_var(T, variables[i]))
-    
-    return Table(variables, L)
+def velookup(table, i, j, valeur):
+    T=Table.extraire_var(table, i)
+    if valeur in T.data:
+        return Table.extraire_var(table, j).data[T.data.index(valeur)]
+    else:
+        return ("Pas trouvé")
