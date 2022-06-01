@@ -24,6 +24,6 @@ class Plot():
             return beta1*x+beta0
         x = np.linspace(int(min(self.table.data))-5, int(max(self.table.data))+5, 100)
         plt.plot(x, f(x), color="red")
-        plt.plot(x, f(x), color="red", label="Coef. de corrélation = "+str(Rcarre))
+        plt.plot(x, f(x), color="red", label="R-carré = "+str(Rcarre))
         plt.legend(loc="upper right")
         return plt.show()
