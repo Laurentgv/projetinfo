@@ -1,4 +1,4 @@
-import outils
+#import outils
 
 class Table:
     '''
@@ -26,13 +26,13 @@ class Table:
         self.var=var
         self.data=data
 
-    def enlev_var(self,variable):
+    def enlev_var(self,variable:str):
         '''
         Permet de retirer une variable à une table
         
         Attributes
         ----------
-        var : str
+        variable : str
             variable qu'on souhaite retirer
         
         Example
@@ -41,15 +41,17 @@ class Table:
         >>> a.enlev_var("temperature")
         Table([pays],[[France],[UK]])
         '''
-        var=self.var
-        index=var.index(variable)
-        var.pop(index)
+
+        index=(self.var).index(variable)
+        del self.var[index]
         data=self.data
         for j in range (len(data)):
-            (data[j]).pop(index)
-        return Table(var,data)
+            drap=data[j]
+            del drap[index]
+            data[j]=drap
+        return Table(self.var,data)
 
-    def ajouter_var(self,variable,donnees):
+    def ajouter_var(self,variable:str,donnees:list):
         '''
         Permet d'ajouter une variable à une table
         
@@ -73,7 +75,7 @@ class Table:
             (data[i]).append(donnees[i])
         return (Table(variables,data))
 
-    def extraire_var(self,variable):
+    def extraire_var(self,variable:str):
         '''
         Permet d'extraire les données d'une variable dans une table
         
@@ -88,7 +90,7 @@ class Table:
             L.append((self.data)[i][index])
         return L
 
-    def l_index(self,variable,valeur):
+    def l_index(self,variable:str,valeur):
         '''
         Permet d'obtenir la liste d'index d'une variable pour une valeur donnée
         
