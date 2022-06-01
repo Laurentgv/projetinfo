@@ -19,7 +19,11 @@ class Plot():
         plt.title(titre)
         plt.xlabel(self.table.var[0])
         plt.ylabel(table.var[0])
-        b, a = Reglin(self.table.data).calcul(table.data)
-        seq=range(min(self.table.data), max(table.data))
-        plt.plot(a*seq +b, color="r", lw=2.5)
+        beta0, beta1, Rcarre = Reglin(self.table.data).calcul(table.data)
+        def f(x):
+            return beta1*x+beta0
+        x = np.linspace(int(min(self.table.data))-5, int(max(self.table.data))+5, 100)
+        plt.plot(x, f(x), color="red")
+        plt.plot(x, f(x), color="red", label="Coef. de corrélation = "+str(Rcarre))
+        plt.legend(loc="upper right")
         return plt.show()

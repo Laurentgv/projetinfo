@@ -16,4 +16,12 @@ class Reglin(Estimateur):
         X=Moyenne(self.variable).calcul()
         Y=Moyenne(variable).calcul()
         beta0=Y-beta1*X
-        return (beta0, beta1)
+        def f(x):
+            return beta1*x+beta0
+        SSL=0
+        SST=0
+        for i in range(len(self.variable)):
+            SSL+=(f(variable[i])-Y)**2
+            SST+=(variable[i]-Y)**2
+        Rcarre=SSL/SST
+        return (beta0, beta1, Rcarre)
