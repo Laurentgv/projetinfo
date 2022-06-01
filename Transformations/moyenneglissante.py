@@ -41,7 +41,7 @@ class Moyenne_glissante(Transformations):
         Table(['Nom_variable'],[[None],[10],[3],[3],[3],[3],[3],[5],[None]])
         '''
         
-        assert(len(var)==1)
+        assert(len(variable)==1)
         data=table.extraire_var(variable)
         le=len(data)
         L=le*[None]
