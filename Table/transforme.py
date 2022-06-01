@@ -1,4 +1,4 @@
-from table.Table import Table
+from table.table import Table
 import outils
 import time
 from datetime import datetime
@@ -135,13 +135,4 @@ class Transforme:
             seconde=str(date[17:19])
             donnees[i][index]=annee+mois+jour+heure+minute+seconde
         return Table(self.var, donnees)
-
-    def type_date(table, variable, format):
-    #pour csv format = '%Y%m%d%H%M%S.0' --- datetime.strptime('20130101000012.0', '%Y%m%d%H%M%S.0')
-    #pour json date-heure format = '%Y-%m-%dT%H:%M:%S%z' --- datetime.strptime('2013-01-30T18:44:12+01:00', '%Y-%m-%dT%H:%M:%S%z')
-
-        i = table.var.index(variable)
-        for j in range(len(table.data)):
-            table.data[j][i]=datetime.strptime(str(table.data[j][i]), format)
-        return table
 
