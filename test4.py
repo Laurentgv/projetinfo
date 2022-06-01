@@ -20,8 +20,6 @@ from transformations.makekey import Makekey
 from figure.plot import Plot
 from transformations.append import Append
 
-janvier_2013=Importer.json_file("/Users/Louis/Downloads/données/données_électricité/2013-01.json.gz")
-
 def mega_json(L):
     data=[]
     for i in range(len(L)):
