@@ -1,5 +1,5 @@
 from table.table import Table
-from transformations.Transformations import Transformations
+from transformations.transformation import Transformations
 
 class Agregation_spatiale(Transformations):
 
