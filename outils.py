@@ -127,6 +127,3 @@ def toto(table, variable):
             sortie[L.index(valeur)][i]=Moyenne(Table.Table.extraire_var(T, variables[i]))
     
     return Table(variables, L)
-
-test=Table(['week', 'vitesse'], [[1, 50], [1, 100], [2, 10], [2, 20], [3, 5]])
-toto(test, 'week')
