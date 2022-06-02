@@ -1,5 +1,5 @@
 from estimateur.estimateur import Estimateur
-from table.table import Table
+from table.Table import Table
 
 class Somme(Estimateur):
     '''Permet de calculer la somme d'une variable numérique

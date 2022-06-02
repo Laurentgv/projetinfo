@@ -1,4 +1,4 @@
-from table.table import Table
+from table.Table import Table
 from transformations.transformation import Transformations
 from datetime import datetime
 import time
@@ -7,7 +7,7 @@ class Addweek(Transformations):
     def __init__(self):
         super().__init__()
 
-    def transfo(table):
+    def transfo(table:Table):
         d=table.var.index('date')
         table.var.append('week')
         for i in range(len(table.data)):
