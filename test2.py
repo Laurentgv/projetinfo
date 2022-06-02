@@ -1,5 +1,5 @@
 #import outils
-from table.table import Table
+from table.Table import Table
 from transformations.Agregation_spatiale import Agregation_spatiale
 #from transformations.Centrage import Centrage
 #from transformations.Fenetrage import Fenetrage

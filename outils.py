@@ -1,9 +1,9 @@
 from estimateur.moyenne import Moyenne
-from table.table import Table
+from table.Table import Table
 import time
 from datetime import datetime
 
-def fusion(L1, L2):
+def fusion(L1:list, L2:list):
     '''Concatène deux listes en gardant leur ordre et en supprimant les doublons.
         
     Attributs

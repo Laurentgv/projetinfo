@@ -21,7 +21,7 @@ from figure.plot import Plot
 
 
 ##JSON
-test_json=Importer.json_file("/Users/Louis/Downloads/données/données_électricité/2013-01.json.gz")
+test_json=Importer.json_file("/Users/laurentgv/Desktop/Données/2013-01.json")
 test_json2=Transforme.transforme_json(test_json)
 test_json3=Typedate.transfo(test_json2, 'date_heure', '%Y-%m-%dT%H:%M:%S+01:00')
 test_json4=Table.enlev_var(test_json3, 'date')
@@ -53,11 +53,11 @@ test_json8=Meanbyvar.transfo(test_json7, 'clé_regionweek')
 
 
 ##CSV
-test_csv=Importer.csv_file("/Users/Louis/Downloads/données/données_météo/synop.201301.csv.gz")
+test_csv=Importer.csv_file("/Users/laurentgv/Desktop/Données/synop.201301.csv")
 test_csv2=Transforme.transforme_csv(test_csv, 'mq')
 test_csv3=Typedate.transfo(test_csv2, 'date', '%Y%m%d%H%M%S.0')
 
-stations=Importer.csv_not_gz("/Users/Louis/Downloads/données/postesSynopAvecRegions.csv")
+stations=Importer.csv_not_gz("/Users/laurentgv/Desktop/Données/postesSynopAvecRegions.csv")
 #il faut simplement transformer les id en num pour cohérence
 for i in range(1, len(stations)):
     stations[i][0]=float(stations[i][0])

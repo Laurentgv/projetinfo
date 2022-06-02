@@ -1,4 +1,4 @@
-from table.table import Table
+from table.Table import Table
 from table.transforme import Transforme
 
 from exporter.exporter import Exporter
@@ -10,11 +10,11 @@ from estimateur.somme import Somme
 
 from transformations.Agregation_spatiale import Agregation_spatiale
 from transformations.append import Append
-from transformations.centrage import Centrage
-from transformations.fenetrage import Fenetrage
-from transformations.jointure import Jointure
+from transformations.Centrage import Centrage
+from transformations.Fenetrage import Fenetrage
+from transformations.Jointure import Jointure
 from transformations.moyenneglissante import Moyenne_glissante
-from transformations.normalisation import Normalisation
+from transformations.Normalisation import Normalisation
 from transformations.selectionvariable import Selection_variable
 from transformations.transformation import Transformations
 
