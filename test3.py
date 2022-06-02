@@ -4,7 +4,7 @@ from estimateur.ecarttype import EcartType
 from estimateur.moyenne import Moyenne
 from estimateur.somme import Somme
 from importer.importer import Importer
-from table.Table import Table
+from table.table import Table
 from table.transforme import Transforme
 from estimateur.ecarttype import EcartType
 from transformations.addweek import Addweek
