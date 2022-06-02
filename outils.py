@@ -1,5 +1,5 @@
 from estimateur.moyenne import Moyenne
-from table.Table import Table
+from table.table import Table
 import time
 from datetime import datetime
 

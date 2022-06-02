@@ -1,4 +1,4 @@
-from table.Table import Table
+from table.table import Table
 from transformations.transformation import Transformations
 from datetime import datetime
 import time

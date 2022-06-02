@@ -1,4 +1,4 @@
-from table.Table import Table
+from table.table import Table
 import outils
 import time
 from datetime import datetime

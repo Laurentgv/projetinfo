@@ -1,5 +1,5 @@
 from estimateur.ecarttype import EcartType
-from table.Table import Table
+from table.table import Table
 from transformations.transformation import Transformations
 
 class Normalisation(Transformations):

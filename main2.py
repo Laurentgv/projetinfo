@@ -9,7 +9,7 @@ from estimateur.ecarttype import EcartType
 from transformations.addweek import Addweek
 from transformations.append import Append
 from transformations.mapping import Mapping
-from transformations.normalisation import Normalisation
+#from transformations.normalisation import Normalisation
 import time
 from datetime import datetime
 import outils
